@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    color: #333;
+    font-family: Roboto,"system-ui",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+.first_head
+{
+    font-family: Calibri, sans-serif;
+    background: white;
+    font-weight: bolder;
+    font-size:medium;
+    margin-left: 10px;
+}
+
+.second_cont1
+{
+    margin-left: 0px;
+    margin-top: 15px;
+    font-family: Calibri, sans-serif;
+}
+
+.second_cont2
+{
+    margin-left: 0px;
+    margin-top: 30px;
+    font-family: Calibri, sans-serif;
+}
+
+.second_cont3
+{
+    margin-left: 0px;
+    margin-top: 15px;
+    font-family: Calibri, sans-serif;
+}
+
+.second_head
+{
+    font-family: Calibri, sans-serif;
+    background: white;
+    font-weight: bolder;
+    font-size:medium;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.second_tit
+{
+    font-size: small;
+    font-family: Calibri, sans-serif;
+   margin-top: 20px;
+}
+
+.second_cont
+{
+    margin-left: 0px;
+    margin-top: 15px;
+    font-family: Calibri, sans-serif;
+    font-size: small;
+}

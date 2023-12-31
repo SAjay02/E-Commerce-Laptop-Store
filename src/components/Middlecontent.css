@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalnia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+
+figure {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+}
+.top_cont
+{
+    background: url(https://storage-asset.msi.com/event/2023/IN/nb-diwali/images/info-bg.jpg) no-repeat bottom;
+    background-color: #f9eddd;
+    padding: 6.5% 0;
+    background-size: contain;
+    margin-top: 20px;
+    border-radius: 30px;
+    overflow-x: hidden;
+}
+@media screen and (max-Width:500px) {
+    .top_cont
+    {
+        background: url(https://storage-asset.msi.com/event/2023/IN/nb-diwali/images/info-bg.jpg) no-repeat bottom;
+        background-color: #f9eddd;
+        padding: 6.5% 0;
+        background-size: contain;
+        margin-top: 20px;
+        border-radius: 30px;
+        height: 1760px;
+    }
+}
+.head
+{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 96%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.sub_head
+{
+    border: 2px solid #fde6aa;
+    border-radius: 25px;
+    background: white;
+    padding: 5%;
+    text-align: left;
+    height: 31vw;
+    font-size: 36px;
+}
+
+@media screen  and (max-Width:500px){
+    .sub_head
+    {
+        border: 2px solid #fde6aa;
+        border-radius: 25px;
+        background: white;
+        padding: 5%;
+        text-align: left;
+        height: 0vw;
+        font-size: 36px;
+        width: 400px;
+        height: 550px;
+    }
+    
+}
+.head_tit
+{
+    background: #ffbb40;
+    padding: 12px 40px 6px;
+    display: block;
+    border-radius: 12px 12px 0px 12px;
+    margin-bottom: 2%;
+    line-height: 2.2;
+    /* margin-left: 100px; */
+     margin-right: 400px; 
+}
+
+@media screen and(max-Width:500px) {
+    .head_tit
+    {
+        background: #ffbb40;
+    padding: 12px 40px 6px;
+    display: block;
+    border-radius: 12px 12px 0px 12px;
+    margin-bottom: 2%;
+    line-height: 2.2;
+    /* width: 600px; */
+    }
+}
+
+
+.common_tit
+{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-left: 10px;
+    background: linear-gradient(to bottom, #680613 30%, #c74514 70%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'Kalnia', serif;
+    font-size: 28px;
+}
+
+@media screen and (max-Width:500px){
+    .common_tit
+    {
+        display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-left: 40px;
+    background: linear-gradient(to bottom, #680613 30%, #c74514 70%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'Kalnia', serif;
+    font-size: 19px;
+    width: 200px;
+    }
+    
+}
+.cent_cont
+{
+    text-align: left;
+    font-size: 25px;
+    font-family: "Crimson";
+    margin-left: 35px;
+    /* opacity: 0.7; */
+}
+
+@media screen and (max-Width:500px) {
+    .cent_cont
+    {
+            text-align: left;
+            font-size: 20px;
+            font-family: "Crimson";
+            margin-left: 10px;
+            /* opacity: 0.7; */
+            /* line-height: 50px; */
+    }
+}
+.img_head
+{
+    margin-top: -200px;
+    height: 200px;
+    margin-right: 530px;
+    /* width: 100px; */
+    filter: brightness(100%);
+    filter: contrast(120%);
+}
+
+@media screen and (max-Width:500px){
+    .img_head
+    {
+        /* margin-top: -250px;
+    height:70px;
+    margin-left: 680px;
+ */
+    display: none;
+    }
+}
+
+.midd_img
+{
+    height: auto;
+    width: 300px;
+    margin-right: 40px;
+    border: 1px solid #fde6aa;
+    border-radius: 12px 12px 0px 12px;
+    margin-bottom: 10px;
+    transition: transform .5s;
+    overflow:hidden;
+}
+
+.midd_img:hover
+{
+    transform: scale(1.1); 
+    opacity: 0.2;
+}
+.name_foot
+{
+    font-size: 20px;
+    display: flex;
+    justify-content:center;
+    color: #680613;
+}
+@media screen and (max-Width:500px) {
+    .name_foot
+    {
+        font-size: 20px;
+        display: flex;
+        justify-content:center;
+        color: #680613;
+        margin-left: 0px;
+    }
+}
+.card_head
+{
+    height: 400px;
+    width: 325px;
+    background-color:#f9eddd;
+    border: none;
+    margin-top: 80px;
+    margin-left: 50px;
+}
+
+@media screen and (max-Width:500px){
+    .card_head
+    {
+        height: 400px;
+    width: 325px;
+    margin-right: 0px;
+    background-color:#f9eddd;
+    border: none;
+    margin-top: 0px;
+    margin-left: 65px;
+    }
+}
+
+.animated-content {
+    opacity: 0;
+    transform: translateX(600px);
+    transition: opacity 0.5s ease, transform 1.5s ease;
+  }
+  .animated-content.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scale-animation {
+    transform: scale(0.8);
+    transition: transform 0.7s;
+  }
+  
+  .scaleUp {
+    transform: scale(1);
+  }
+  
+  .scaleDown {
+    transform: scale(0.8);
+  }

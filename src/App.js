@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import CarouselSlider from "./components/CarouselSlider";
+import Products from "./components/Products";
+import Register from "./pages/Register";
+import SpecificProduct from "./pages/SpecificProduct";
+import SignInSide from "./pages/Signin";
+import {Toaster} from "react-hot-toast"
+import { duration } from "@mui/material";
+import ScrollButton from "./components/ScrollButton"
+import StickyFooter from "./components/Footer";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Homepage/>   
+    <ScrollButton/>
+    <Toaster position="top-center" toastOptions={{duration:3000}}/>
+    <Routes>  
+      <Route path="/"></Route>
+      {/* <Route Component={CarouselSlider} path='/home'></Route> */}
+       <Route Component={CarouselSlider} path="/"></Route>
+       <Route Component={StickyFooter} path="/"></Route>
+      <Route Component={Products} path="/products"></Route>
+      <Route Component={Register} path="/signup"/>  
+      <Route Component={SpecificProduct} path="/api/products/:id"></Route>
+      {/* <Route Component={SignInSide} path="/login"></Route> */}
+    </Routes>
+    <StickyFooter/> 
+    </>
   );
 }
-
 export default App;

@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.cdnfonts.com/css/amazon-ember');
+.container__
+{
+    /* font-family: "Alata",sans-serif; */
+
+}
+
+.img_cont
+{
+    height: 90%;
+    width: 90%;
+}
+
+@media screen and (max-width:500px) 
+{
+.img_cont
+{
+    height: 300px;
+    width: 400px;
+    margin-top: 0px;
+    padding: 0px;
+}
+}
+
+.product_name
+{
+    /* font-family: "Roboto"; */
+    font-size: 26px;
+    font-family: 'Amazon Ember',Arial,  sans-serif;
+    color: #0f1111;
+   
+}
+@media screen and (max-Width:500px) 
+{
+    .product_name
+{
+    /* font-family: "Roboto"; */
+    margin-top: 60px;
+    font-family: 'Amazon Ember',Arial,  sans-serif;
+    color: #0f1111;
+   
+}
+}
+
+.product_desc
+{
+    font-family: "Alata";
+    word-break: break-all;
+    font-weight: normal;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.product_cost
+{
+    /* font-weight: 400; */
+    display: inline;
+    color: #212121
+}
+
+@media screen and (max-Width:500px)
+{
+    .product_cost
+    {
+        display: inline;
+        color: #212121;
+        margin-top: 6px;
+    }     
+}
+
+.rup_siz
+{
+    /* font-size: 30px; */
+    /* margin-right: 4px; */
+    /* color:black; */
+    /* color: gray; */
+    margin-top: 5px;
+}
+
+@media screen and (max-Width:500px) 
+{
+    .rup_siz
+    {
+        font-size: 20px;
+        margin-top: 3px;
+    } 
+}
+.dicount
+{
+    margin-left: 8px;
+    margin-top: 15px;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+@media screen and (max-Width:500px) 
+{
+    .dicount
+    {
+        margin-left: 8px;
+        margin-top: 10px;
+        font-size: 13px;
+        text-decoration: line-through;
+    }  
+}
+.price_cont
+{
+    margin-top: 10px;
+    color: #039703;
+    font-family: "Roboto",Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.discount_offer
+{
+    margin-top: 7px;
+    font-family: "Roboto"sans-serif;
+    margin-left: 8px;
+    color: #039703;
+}
+
+@media screen and (max-Width:500px) 
+{
+    .discount_offer
+    {
+        margin-top: 3px;
+        font-family: "Roboto"sans-serif;
+        margin-left: 8px;
+        color: #039703;
+    }  
+}
+
+.avail_offer
+{
+    font-weight: 500;
+    color: #212121;
+}
+.btn-buy
+{
+    height: 60px;
+    width: 235px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #ff9f00;
+    color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    border: none;
+    font-family: "Roboto",Arial,sans-serif;
+    letter-spacing: 0;
+    font-weight: 900;
+}
+@media screen and (max-width:500px) 
+{
+    .btn-buy
+{
+    height: 50px;
+    width: 200px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #ff9f00;
+    color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    border: none;
+    font-family: "Roboto",Arial,sans-serif;
+    letter-spacing: 0;
+    font-weight: 900;
+}
+}
+.btn-add
+{
+    height: 60px;
+    width: 235px;
+    border-radius: 3px;
+    background-color: #fb641b;
+    color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    border: none;
+    font-family: "Roboto",Arial,sans-serif;
+    letter-spacing: 0;
+    font-weight: 900;
+    /* display: inline-flex; */
+    
+}
+@media screen and (max-width:500px) 
+{
+    .btn-add
+{
+    height: 50px;
+    width: 200px;
+    margin-right: 5px;
+    border-radius: 3px;
+    background-color: #fb641b;
+    color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+    border: none;
+    font-family: "Roboto",Arial,sans-serif;
+    letter-spacing: 0;
+    font-weight: 900;
+    /* display: inline-flex; */
+    /* margin-top: 20px; */
+}
+}
+
+.spcl_offer
+{
+    display:inline-flex ;
+}
+
+.spcl_offer > span{
+    color: #0f1111;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.spcl_offer > p{
+    color: #212121;
+    margin-left: 6px;
+}
+
+.tag_offer
+{
+    margin-top: 6px;
+}
+
+.tag_icon
+{
+    margin-top: 6px;
+}
+.fade-in-from-top {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+  }
+  
+  .fade-in-from-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.font_clr
+{
+     font-family: "Roboto",sans-serif;
+     /* font-size: 20px; */
+} 
+.error-message {
+     color: red;
+     font-size: 12px;
+     margin-top: -25px;
+     /* margin-left: 70px; */
+     display: flex;
+     justify-content: flex-end;
+   }

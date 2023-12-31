@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+/* body{
+        background: url("https://img.freepik.com/free-photo/finance-elements-frame_23-2148080960.jpg?size=626&ext=jpg&uid=R130267218&ga=GA1.1.1473526814.1697979474&semt=ais");
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+.font_clr
+{
+     font-family: "Alata",sans-serif;
+     font-size: 20px;
+} 

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+.img_size
+{
+    border-radius: 3px;
+}
+
+.description_font
+{
+    font-family: 'Roboto'; 
+    font-weight: 800;
+}
+
+.rup_siz
+{
+    font-size: 20px;
+    margin-right: 4px;
+    /* color:black; */
+    font-weight: 800;
+}
+
+.cost
+{
+    font-size:20px;
+}
+
+.btn-buy-cart
+{
+    border:  1px solid #2d8eeb;
+    color: black;
+    font-weight: 600; 
+}
+
+
+
+.tit
+{
+    font-family: 'Roboto',sans-serif;
+    font-size: 30px;
+}
+.card_cont
+{
+    border: 1px solid #abdcff;
+    width: 18rem;
+    max-height: 93vh;
+    transition: transform .5s
+}
+
+.card_cont:hover
+{
+    transform: scale(1.1);
+}
