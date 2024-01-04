@@ -4,6 +4,7 @@ const bodyParser=require("body-parser");
 const Product=require("./src/Server/Models/productModel");
 const Register=require("./src/Server/Models/registerModel");
 const Login=require("./src/Server/Models/loginModel");
+const Cart=require("./src/Server/Models/cartModel")
 const connectdb=require("./src/Server/configurations/db");
 const app=express();
 const PORT=process.env.PORT || 8000;
@@ -87,8 +88,8 @@ const verifyToken = async(req, res, next) => {
   // Endpoint to get user information
   app.get('/user', verifyToken, async (req, res) => {
     try {
-        const { id, name } = req.user;
-        res.json({ id, name });;
+        const { id, name,email } = req.user;
+        res.json({ id, name ,email});;
       } catch (error) {
         console.error('Error fetching user info:', error);
         res.status(500).json({ error: 'Internal server error' });
@@ -228,12 +229,55 @@ app.post("/loginuser",async(req,res)=>
     }
 })
 
+// Endpoint to add product to the cart
+app.post('/addtocart',  async (req, res) => {
+    try {
+      const { authToken,products  } = req.body;
+      const { name, id, description, quantity, cost } = products;
+      console.log('Received Data:', products);
+        const cart = await Cart.findOneAndUpdate(
+          { authToken: authToken },
+          {
+            $push: {
+              products: {
+                name,id,description,quantity,cost
+              },
+            },
+          },
+          { new: true, upsert: true }
+        );
+        // res.json(cart);
+        res.status(200).json({ success: true, message: 'Product added to the cart', cart });
+      
+    } catch (error) {
+      console.error('Error adding product to the cart:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
 
+  // Add a new endpoint to get cart items
+app.get('/getcart/:authToken',async (req, res) => {
+    try {
+      const { authToken } = req.params;
+      console.log('auth '+authToken)
+      const cart = await Cart.findOne({ authToken });
+      console.log('cart '+cart);
+      
+      if (!cart) {
+        return res.status(404).json({ error: 'Cart not found' });
+      }
+  
+      res.status(200).json({ success: true, cart });
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
 app.listen(PORT,()=>
 {
     console.log(`Port Connected ${PORT}`);
 })
-console.log(availableProducts);
+
 
 module.exports=app;
-module.exports=availableProducts; 
+// module.exports=availableProducts; 

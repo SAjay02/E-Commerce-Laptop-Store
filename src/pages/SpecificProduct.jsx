@@ -18,7 +18,7 @@ import {useDispatch} from "react-redux"
 import {addCart} from "../redux/action"
 // import {addCart} from "../redux/action/cartActions"
 import {toast} from "react-hot-toast"
-import { faL } from '@fortawesome/free-solid-svg-icons'
+import Cookies from 'js-cookie';
 
 
 const product_image=[
@@ -60,25 +60,43 @@ const product_image=[
   }
 ]
 const SpecificProduct = () => {
-
+ 
   const {id} = useParams();
   const [product,setProduct]=useState({});
    const [loading,setLoading]=useState(false);
-   const [isVisibletop ,setIsVisibletop]=useState(false)
+   const [isVisibletop ,setIsVisibletop]=useState(false);
+   const [cart, setCart] = useState([]);
   const item = [];
-
+  const authToken = Cookies.get('token');
+  const email=Cookies.get('email');
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    const existingProducts = JSON.parse(localStorage.getItem(authToken)) || [];
+    setCart(existingProducts);
+  }, [authToken]);
+  
   const addProduct = (product) => {
+    try
+    {
+      const data = {
+        authToken: email, // This should be the user's authentication token
+        products: product, // The ID of the product you want to add to the cart
+      };
+        console.log('Data:', data); 
+        axios.post("http://localhost:8000/addtocart",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
+    } 
+    catch(event){
+      console.log("Error:"+event);
+    }
+    const updatedCart = [...cart, product];
+    setCart(updatedCart);
+    console.log(cart)
     //console.log('Adding product to cart:', product);
     dispatch(addCart(product));
     toast.success(`${product.name} added to the cart!`);
+    localStorage.setItem(authToken, JSON.stringify(updatedCart));
   };
-    // Use these functions to dispatch user-specific actions
-  //   const addProduct = (product) => {
-  //     console.log('Before dispatch:', product);
-  // dispatch(addCart(product));
-  // console.log('After dispatch');
-  //   };
 
 useEffect(() => {
   //console.log('Fetching product details for ID:', id);

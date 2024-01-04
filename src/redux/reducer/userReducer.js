@@ -1,28 +1,32 @@
 const initialState = {
-  id: '', // User ID
-  name: '',
-  cart: [],
+  user: null,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_USER':
+    case "SET_USER":
       return {
         ...state,
-        id: action.payload.id,
-        name: action.payload.name,
+        user: action.payload,
       };
-    case 'ADD_TO_CART':
+    case "ADD_TO_CART":
+      // Assuming you have a 'cart' property in your user object
+      const updatedUser = {
+        ...state.user,
+        cart: [...state.user.cart, action.payload],
+      };
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        user: updatedUser,
       };
-    case 'REMOVE_FROM_CART':
+    case "REMOVE_FROM_CART":
+      // Implement logic to remove item from the user's cart
+      // ...
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload),
+        user: updatedUser,
       };
-    // ... other cases
+    // Other cases...
     default:
       return state;
   }

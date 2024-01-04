@@ -72,6 +72,7 @@ function ProductCard({product}) {
     //console.log('Adding product to cart:', product);
     dispatch(addCart(product));
     toast.success(`${product.name} added to the cart!`);
+
   };
   console.log(imgItem.img);
   return (

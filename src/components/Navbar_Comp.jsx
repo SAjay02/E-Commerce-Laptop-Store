@@ -20,17 +20,7 @@ import {toast,Toaster} from "react-hot-toast"
 import Cookies from 'js-cookie';
 import {setUser,addToCart,removeFromCart} from "../redux/action/userActions"
 
-
 const Navbar_Comp = ({sections }) => {
-
-  // const dispatch = useDispatch();
-  // const handleCart = useSelector((state) => state.handleCart);
-
-
-
-  // const handleRemoveFromCart = (productId) => {
-  //   dispatch(removeFromCart(productId));
-  // };
 
   const state = useSelector((state) => state.handleCart) || []
   const authToken = Cookies.get('token');
@@ -53,6 +43,7 @@ const Navbar_Comp = ({sections }) => {
           console.log('User info data:', response.data); 
           console.log('User info name:', response.data.name); 
           setUsername(response.data.name);
+          Cookies.set('email', response.data.email, { expires: 20 });
           setUserId(response.data.id);
         });
       } catch (error) {
@@ -67,20 +58,38 @@ const Navbar_Comp = ({sections }) => {
 
   console.log(username)
 
-  // useEffect(() => {
-  //   setCartCount(handleCart.length);
-  // }, [handleCart]);
+
 
   const handleLogout = () => {
     // Clear the authentication token from the cookie
     Cookies.remove('token');
+    Cookies.remove('email');
     setUsername('');
     // Redirect to the login page or any other desired page
     setUserId('');
     navigate('/login');
   };
 
- 
+  const email = Cookies.get('email');
+  const [cartItemsFromDb, setCartItemsFromDb] = useState();
+   useEffect(() => {
+    if(authToken)
+    {
+      console.log(authToken)
+    axios.get(`http://localhost:8000/getcart/${email}`)
+      .then((response) => {
+        setCartItemsFromDb(response.data.cart.products)
+        console.log('Response ',response)
+      })
+      .catch((error) => {
+        console.error('Error fetching cart items:', error);
+      });
+    }else
+    {
+      setCartItemsFromDb([]);
+    }
+  }, [authToken]);
+  // console.log('length of cart '+cartItemsFromDb.length)
   return (
     <>
     <div style={{backgroundColor:"#2d8eeb"}}>
@@ -91,8 +100,6 @@ const Navbar_Comp = ({sections }) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-between" style={{ marginLeft: 'auto' }} defaultActiveKey="/home">
-            {/* <Nav.Link as={Link} to="/home" className="nav-items-clr justify-content-center">Home</Nav.Link> */}
-            {/* <Nav.Link as={Link} to="/product" className="nav-items-clr">Products</Nav.Link> */}
             <NavDropdown title="Products" id="collapsible-nav-dropdown" className="nav-items-clr" style={{fontSize:""}}>
               <NavDropdown.Item as={Link} to="/all_products" className='common_under'>All Products</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/add_products" className='common_under'>
@@ -124,7 +131,7 @@ const Navbar_Comp = ({sections }) => {
           </Navbar.Collapse>
           <Navbar.Collapse id="basic-navbar-nav">
           <Nav className=" justify-content-between" style={{margin:"auto"}}>
-          <Nav.Link as={Link} to="/cart" className="nav-items-clr"><Button className="  my-1"variant="outline-primary" ><i className="fa fa-shopping-cart me-1"></i>Cart<sup>({state.length})</sup> </Button></Nav.Link>
+          <Nav.Link as={Link} to={`/getcart/${username+Cookies.get('token')}`} className="nav-items-clr"><Button className="  my-1"variant="outline-primary"><i className="fa fa-shopping-cart me-1"></i>Cart<sup style={{color:"black"}}>{}</sup> </Button></Nav.Link>
              {authToken ? (
           <>
           <i class="fa-solid fa-user"></i>

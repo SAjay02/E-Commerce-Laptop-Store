@@ -73,7 +73,7 @@ export default function SignInSide() {
           toast.success("Logined Successfully ");
           Cookies.set('token', response.data.token, { expires: 20 });
           setIsLoggedIn(true);
-          navigate('/');
+          navigate('/'); 
         }
       } catch (error) {
         console.log("Error:", error);
@@ -178,7 +178,7 @@ export default function SignInSide() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={()=>navigate()}
+                onClick={()=>navigate() }
               >
                 Sign In
               </Button>

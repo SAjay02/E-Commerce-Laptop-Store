@@ -50,22 +50,3 @@ const handleCart = (state = cart, action)=>
 }
 export default handleCart;
 
-// const initialState = [];
-
-// const handleCart = (state = initialState, action) => {
-//     switch (action.type) {
-//       case 'ADD_TO_CART':
-//         console.log('Reducer: Adding to cart:', action.payload);
-//         return {
-//           ...state,
-//           cartItems: [...state.cartItems, action.payload],
-//         };
-//       // other cases...
-//       default:
-//         return state;
-//     }
-//   };
-
-
-
-// export default handleCart;
