@@ -17,6 +17,7 @@ import {useState,useEffect} from "react"
 import axios from 'axios'
 
 
+
 const email=Cookies.get('email');
 console.log(email)
 
@@ -119,8 +120,13 @@ const handleDecrease = (item) => {
   setCartItemsFromDb(updatedCart);
 };
 
-const handleRemove = (item) => {
-  dispatch(remvoCart(item));
+const handleRemove = (cartItem) => {
+  console.log(cartItem._id)
+  axios.delete(`http://localhost:8000/deleteCart/${authToken}/${cartItem._id}`)
+  .then((response)=>console.log('Deleted Response: '+response))
+  .catch((error) => console.error('Error deleting product from cart:', error));
+  const updatedCartItems = cartItemsFromDb.filter((item) => item._id !== cartItem._id);
+      setCartItemsFromDb(updatedCartItems);
 };
 /*
 const cartItems = (cartItem) => {
@@ -315,7 +321,7 @@ if (!cartItemsFromDb) {
                       <button
                         type="button"
                         className="btn btn-outline-secondary btn_remove"
-                        onClick={() => handleRemove(cartItem)}
+                        onClick={()=>handleRemove(cartItem)}
                       >
                         <i
                           className="fa-solid fa-trash"

@@ -273,6 +273,36 @@ app.get('/getcart/:authToken',async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+
+    // Delete a new endpoint to del cart items
+    app.delete('/deleteCart/:authToken/:id', async (req, res) => {
+        try {
+          const { id, authToken } = req.params; 
+          console.log('Received delete request with authToken:', authToken, 'and id:', id);
+          const cart = await Cart.findOneAndUpdate(
+            { authToken: authToken },
+            {
+              $pull: {
+                products: {
+                  _id: id,
+                },
+              },
+            },
+            { new: true }
+          );
+      
+          if (!cart) {
+            return res.status(404).json({ error: 'Product not found in the cart' });
+          }
+      
+          res.status(200).json({ success: true, cart });
+        } catch (error) {
+          console.log('Error deleting product from cart:', error);
+          res.status(500).json({ error: 'Internal server error' });
+        }
+      });
+
 app.listen(PORT,()=>
 {
     console.log(`Port Connected ${PORT}`);
@@ -280,4 +310,3 @@ app.listen(PORT,()=>
 
 
 module.exports=app;
-// module.exports=availableProducts; 
