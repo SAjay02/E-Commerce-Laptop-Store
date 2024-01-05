@@ -168,7 +168,7 @@ body
     display:inline-flex;    
     margin-top: -75px;
     justify-content: flex-end;
-    margin-left: 25px;
+    margin-left: 0px;
     /* background-color: white; */
 }
 
