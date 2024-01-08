@@ -49,3 +49,11 @@
 {
     transform: scale(1.1);
 }
+
+.offer_img
+{
+    height: 50px;
+    width:auto;
+    background-color: aliceblue;
+    margin-top: -10px;
+}

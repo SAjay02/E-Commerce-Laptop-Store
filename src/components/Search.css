@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+.nav-items-clr
+{
+    color: #fcfcfa;
+    font-family :"Amazon Ember",Arial,sans-serif;
+    /* font-family: 'Roboto'; */
+    font-size: 19px;
+}

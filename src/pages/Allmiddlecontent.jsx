@@ -1,8 +1,10 @@
 import React from 'react'
 import "./Allmiddlecontent.css"
+import LastmidCont from './LastmidCont'
 const Allmiddlecontent = () => {
   return (
     <div>
+      <LastmidCont/>
         <div style={{marginTop:"20px"}}>
           <span className="first_head">Why Do We Need Laptops and Their Benefits?</span>
           <br/>
@@ -58,6 +60,7 @@ Especially if you are looking for gaming laptops, Samsung laptops' performance i
 </p>
           </div>
         </div>
+      
     </div>
   )
 }

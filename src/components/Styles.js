@@ -31,6 +31,5 @@ export const Button = styled.div`
    z-index: 1; 
    cursor: pointer; 
    color: #2d8eeb; 
-   // display:none
     }
 `

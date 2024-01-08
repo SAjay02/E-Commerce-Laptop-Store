@@ -4,7 +4,6 @@ import img2 from "../assets/Caro_Img1.jpg"
 import {Carousel} from "react-bootstrap"
 import "./CarouselSlider.css"
 import Middlecontent from './Middlecontent'
-import StickyFooter from './Footer'
 const CarouselSlider = () => {
     let carousel = [
         {
@@ -17,7 +16,7 @@ const CarouselSlider = () => {
         }
       ]
   return (
-    <>
+    <div>
   <div className="container__">
     <Carousel >
           {
@@ -38,7 +37,7 @@ const CarouselSlider = () => {
         {/* <StickyFooter/> */}
         </div>
          <Middlecontent/>
-         </>
+         </div>
   )
 }
 

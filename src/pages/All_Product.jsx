@@ -19,6 +19,7 @@ import {addCart} from "../redux/action"
 
 import {toast} from "react-hot-toast"
 
+import offer from "../assets/Offer.png"
 const item = [];
 const product_image=[
   {
@@ -60,6 +61,9 @@ const product_image=[
 ]
 function ProductCard({product}) {
   const imgItem = product_image.find((item) => item.id === product.id);
+  const totalPrice=Number(product.cost)+20000;
+const calculateDiscount=(Number(product.cost)/totalPrice)*100;
+const totalDiscount=Math.floor(Number(100-calculateDiscount));
   const navigate=useNavigate();
   function handlePass()
   {
@@ -90,7 +94,7 @@ function ProductCard({product}) {
         </Card.Body>
        <div className="d-flex justify-content-evenly mb-4 description_font">
         <NavLink ><Button className="btn-buy-cart" onClick={handlePass}><i className=" fa-brands fa-buy-n-large fa-shake rup_siz" style={{color:"0d0d0d",fontSize:"19px"}}></i>BUY</Button></NavLink>
-          <Button className="btn-buy-cart" onClick={()=>addProduct(product)}><i className="fa-solid fa-cart-shopping" style={{color:"0d0d0d",marginRight:"4px"}}></i>ADD TO CART</Button>
+          <span className="btn-buy-cart border-0 "style={{backgroundColor:"aliceblue",color:"#039703"}}><i class="fa-solid fa-bullhorn fa-beat" style={{color:"#0d0d0d",marginRight:"4px"}}></i><img src={offer} className='offer_img'/>{totalDiscount}<i class="fa-solid fa-percent mx-1"></i></span>
           </div>
         </div>
       </Card>

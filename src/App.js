@@ -10,10 +10,12 @@ import { duration } from "@mui/material";
 import ScrollButton from "./components/ScrollButton"
 import StickyFooter from "./components/Footer";
 import Cart from "./pages/Cart"
+import Sidebar from "./components/Sidebar";
 function App() {
   return (
     <>
-    <Homepage/>   
+    <Homepage/>  
+    {/* <Sidebar/> */}
     <ScrollButton/>
     <Toaster position="top-center" toastOptions={{duration:3000}}/>
     <Routes>  
@@ -26,6 +28,7 @@ function App() {
       <Route Component={SpecificProduct} path="/api/products/:id"></Route>
       <Route path="/getcart/:authToken" element={<Cart />} />
     </Routes>
+    
     <StickyFooter/> 
     </>
   );
