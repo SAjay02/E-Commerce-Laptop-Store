@@ -296,26 +296,6 @@ if (!cartItemsFromDb) {
                         role="group"
                         aria-label="Quantity"
                       >
-                        {/* <button
-                          type="button"
-                          className="btn btn-outline-secondary sub_btn"
-                          onClick={() => handleDecrease(cartItem)}
-                        >
-                          <i
-                            className="fa-solid fa-minus fa-2xs"
-                            style={{ color: '#020a17' }}
-                          ></i>
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-outline-secondary add_btn"
-                          onClick={() => handleIncrease(cartItem)}
-                        >
-                          <i
-                            className="fa-solid fa-plus fa-2xs"
-                            style={{ color: '#010813' }}
-                          ></i>
-                        </button> */}
                         <p className="add_btn">Available Stocks:<span style={{fontWeight:"bold",marginLeft:"3px"}}>{cartItem.quantity}</span></p>
                       </div>
                       <button

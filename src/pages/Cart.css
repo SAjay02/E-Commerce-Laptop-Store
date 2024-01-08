@@ -25,7 +25,7 @@ body
     margin-top: 100px;
     
 } 
-@media screen and (max-Width:500px) {
+@media screen and (max-Width:600px) {
     .heading_cont
     {
             font-weight: 400;
@@ -48,7 +48,7 @@ body
     font-size: 17px;
     margin-left: 1100px;
 }
-@media screen and (max-Width:500px) {
+@media screen and (max-Width:600px) {
     .head_last_cont
     {
         display: none;
@@ -151,7 +151,7 @@ body
     margin-bottom: 10px;
     margin-left: 20px;
 }
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .btn_remove
 {
     border-radius: 40px;
@@ -192,7 +192,7 @@ body
     font-family: Arial,  sans-serif;
 }
 
-@media screen and (max-Width:500px) {
+@media screen and (max-Width:600px) {
     .all_prices
     {
         margin-top: -135px;
@@ -204,7 +204,7 @@ body
     height: 300px;
     width: auto;
 }
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .empty_cart_img{
         height: 250px;
         width: 300px;
@@ -216,7 +216,7 @@ body
     margin-left: 250px;
 }
 
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .empty_cart_head{
         margin-left: 0px;
         margin-top: 65px ;
@@ -231,7 +231,7 @@ body
     margin-top: -40px;
     width: 25%;
 }
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .checkout{
     background-color: #039703;
     color: white;

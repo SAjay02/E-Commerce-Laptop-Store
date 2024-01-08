@@ -178,6 +178,9 @@ app.post("/register",async(req,res)=>
 //send login data to db
 app.post("/loginuser",async(req,res)=>
 {
+  const adminName="Ajay";
+  const adminEmail="ajay02@gmail.com";
+  const adminPassword="Ajay02";
     try
     {
         const {email,password}=req.body;
@@ -188,7 +191,24 @@ app.post("/loginuser",async(req,res)=>
                 error:"email or password is wrong"
             })
         }
+        if(email===adminEmail && password===adminPassword)
+        {
+          const token=jwt.sign(
+            {adminName,adminEmail,role:"admin"},
+            'lapiistore',
+            {
+                expiresIn:"20d"   
+            }
+        );
+         return res.status(200).json({
+          success: true,
+          token,
+          user: { email, role: "admin" }
+        }); 
 
+        }
+        else 
+        {
         const user =await Register.findOne({email})
 
         if(user && (await bcrypt.compare(password,user.password)))
@@ -207,19 +227,16 @@ app.post("/loginuser",async(req,res)=>
                 httpOnly:true
             };
 
-            // res.cookie("token", token, options);
-
             res.status(200).cookie("token",token,options).json({
                 success:true,
                 token,
                 user
             })
-            
-
         }
         else{
             return res.status(404).json({msg:'invalid user data'})
         }
+      }
     }catch(error)
     {
         console.log("Error",error);

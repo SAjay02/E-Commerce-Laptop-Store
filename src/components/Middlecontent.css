@@ -21,7 +21,7 @@ figure {
     border-radius: 30px;
     overflow-x: hidden;
 }
-@media screen and (max-Width:500px) {
+@media screen and (max-Width:600px) {
     .top_cont
     {
         background: url(https://storage-asset.msi.com/event/2023/IN/nb-diwali/images/info-bg.jpg) no-repeat bottom;
@@ -65,7 +65,7 @@ figure {
     font-size: 36px;
 }
 
-@media screen  and (max-Width:500px){
+@media screen  and (max-Width:600px){
     .sub_head
     {
         border: 2px solid #fde6aa;
@@ -92,7 +92,7 @@ figure {
      margin-right: 400px; 
 }
 
-@media screen and(max-Width:500px) {
+@media screen and(max-Width:600px) {
     .head_tit
     {
         background: #ffbb40;
@@ -120,7 +120,7 @@ figure {
     font-size: 28px;
 }
 
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .common_tit
     {
         display: block;
@@ -143,16 +143,21 @@ figure {
     font-size: 25px;
     font-family: "Crimson";
     margin-left: 35px;
+    color: black;
+    
     /* opacity: 0.7; */
 }
 
-@media screen and (max-Width:500px) {
+@media screen and (max-Width:600px) {
     .cent_cont
     {
             text-align: left;
             font-size: 20px;
             font-family: "Crimson";
             margin-left: 10px;
+            color: black;
+            
+
             /* opacity: 0.7; */
             /* line-height: 50px; */
     }
@@ -167,7 +172,7 @@ figure {
     filter: contrast(120%);
 }
 
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .img_head
     {
         /* margin-top: -250px;
@@ -202,7 +207,7 @@ figure {
     justify-content:center;
     color: #680613;
 }
-@media screen and (max-Width:500px) {
+@media screen and (max-Width:600px) {
     .name_foot
     {
         font-size: 20px;
@@ -222,7 +227,7 @@ figure {
     margin-left: 50px;
 }
 
-@media screen and (max-Width:500px){
+@media screen and (max-Width:600px){
     .card_head
     {
         height: 400px;

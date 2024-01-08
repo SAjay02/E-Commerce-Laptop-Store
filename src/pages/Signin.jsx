@@ -70,6 +70,9 @@ export default function SignInSide() {
           // localStorage.clear();
           setLogin({});
           setUsername(response.data.name);
+          const { role } = response.data.user;
+          console.log('name '+role)
+          Cookies.set('admin',role,{expires:20})
           toast.success("Logined Successfully ");
           Cookies.set('token', response.data.token, { expires: 20 });
           setIsLoggedIn(true);

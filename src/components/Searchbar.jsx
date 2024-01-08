@@ -34,14 +34,19 @@ const Searchbar = ({setSelectedProduct}) => {
     return index === 0 ? 'normal' : 'bold';
   };
 
+
   // Inside the SearchBar component
 const handleSuggestionClick = (suggestion) => {
     setSelectedProduct(suggestion);
     setSearchQuery(suggestion.name)
     navigate(`/api/products/${suggestion._id}`);
-
+    setSearchQuery('')
   };
   
+const handleMove= ()=>
+{
+   navigate('/all_products');
+}
   return (
     <div>
         <Navbar.Collapse id="basic-navbar-nav search_cont">
@@ -58,9 +63,9 @@ const handleSuggestionClick = (suggestion) => {
             />
             <i class="fa-solid fa-magnifying-glass fa-lg search_icon"></i>
             <NavDropdown title="All Categories" id="collapsible-nav-dropdown" className="nav-items-clr border-2" style={{backgroundColor:"white",borderRadius:"7px",border:"1px solid #0978e3"}}>
-              <NavDropdown.Item  className='common_under'>Gaming</NavDropdown.Item>
-              <NavDropdown.Item  className='common_under'>Business</NavDropdown.Item>
-              <NavDropdown.Item  className='common_under'>Education</NavDropdown.Item>
+              <NavDropdown.Item  className='common_under' onClick={handleMove}>Gaming</NavDropdown.Item>
+              <NavDropdown.Item  className='common_under' onClick={handleMove}>Business</NavDropdown.Item>
+              <NavDropdown.Item  className='common_under' onClick={handleMove}>Education</NavDropdown.Item>
             </NavDropdown>
           </Form> 
           </Nav>

@@ -29,7 +29,7 @@ body {
     margin-left: -10px;
   }
 
-  @media screen and (Max-Width:500px){
+  @media screen and (Max-Width:600px){
     .img_one
     {
         margin-left: 0px;
@@ -40,7 +40,7 @@ body {
   {
     margin-left: -50px;
   }
-  @media screen and (Max-Width:500px) {
+  @media screen and (Max-Width:600px) {
     .top_img{
         width: 600px;
         margin-left: -30px;
