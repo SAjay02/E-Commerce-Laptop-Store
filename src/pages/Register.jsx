@@ -46,24 +46,6 @@ const Register = () => {
     setValidated(validate(register));
     setIsSubmit(true);
     const errors = validate(register);
-    // try
-    // {
-    //     console.log('Form Data:', register); 
-    //     const response=axios.post("http://localhost:8000/register",register).then((response)=>console.log(response)).catch((error)=>console.log(error));
-        
-    // if(response.data.error)
-    // {
-    //   toast.error(response.data.error)
-    // }
-    // else{
-    //   setRegister({});
-    //   toast.success("Registration Successfully Completed");
-    //   navigate('/login')
-    // }
-    // } 
-    // catch(event){
-    //   console.log("Error:"+event);
-    // }
     if (Object.keys(errors).length === 0) {
       try {
         const response = await axios.post("http://localhost:8000/register", register);

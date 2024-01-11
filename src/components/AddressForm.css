@@ -1,0 +1,51 @@
+.error-message2
+{
+    margin-left: 357px;
+    color: red;
+    font-size: 16px;
+    margin-top: -33px;
+}
+
+@media screen and (Max-Width:600px){
+    .error-message2
+    {
+        color: red;
+        font-size: 16px;
+        margin-left: 220px;
+    }
+}
+
+.address_sub_btn
+{
+    /* margin-top: -60px; */
+    margin-left: 430px;
+    color: black;
+    /* position: absolute; */
+  
+}
+.address_sub_btn:hover
+{
+    color: white;
+}
+@media screen and (Max-Width:600px){
+    .address_sub_btn
+    {
+        margin-left: 290px;
+    }
+}
+
+.note_Cont
+{
+    font-family: "Amazon Ember",Arial,sans-serif;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+@media screen and (Max-Width:600px){
+    .note_Cont
+    {
+        font-family: "Amazon Ember",Arial,sans-serif;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+}

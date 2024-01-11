@@ -55,11 +55,27 @@ body
     }
     
 }
-.img_cont
+.img_container
 {
-    /* height:10px; */
-    /* width: 100px; */
+    /* margin-top: -100px; */
+    /* height: 250px; */
 }
+@media screen and (Max-Width:600px){
+    .img_container
+    {
+        height: 200px;
+        width: auto;
+        margin-top: 0px;
+        margin-left: 20px;
+    }
+}
+
+/* @media screen and (Max-Width:600px){
+    .col-two
+    {
+        margin-top: 250px;
+    }
+} */
 .item_head
 {
     color:#0F1111;
@@ -87,7 +103,17 @@ body
     display: flex;
     font-family: "Amazon Ember",Arial,sans-serif
 }
-
+@media screen and (Max-Width:600px){
+    .dicount
+    {
+        font-size: 13px;
+        text-decoration: line-through;
+        justify-content: flex-end;
+        display: flex;
+        font-family: "Amazon Ember",Arial,sans-serif;
+        margin-top: -5px;
+    }
+}
 .org_price
 {
 

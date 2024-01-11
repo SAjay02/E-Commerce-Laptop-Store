@@ -129,14 +129,14 @@ useEffect(() => {
                 <Col className="col-sm-12">
                   
                   <Row>
-                          <Col  className="img_cont">{imgItem && imgItem.img ?(<img src={imgItem.img} alt="Product" className="img_cont"/>):(
+                          <Col  className="img_cont">{imgItem && imgItem.img ?(<img src={imgItem.img} alt="Product" className="img"/>):(
         <Skeleton height={200} width={200} count={3}/> )}
-    <div className="d-flex">
+    <div className="d-flex buttons">
           <button className="btn-buy"onClick={()=>addProduct(product)}><i className="fa-solid fa-cart-shopping" style={{color:"0d0d0d",marginRight:"4px"}} ></i>ADD TO CART</button>
           <button className="btn-add"><i className=" fa-brands fa-buy-n-large fa-bounce rup_siz" style={{color:"0d0d0d",fontSize:"19px"}}></i>BUY NOW</button>
           </div>
         </Col>
-                          <Col>
+                          <Col className="col_two">
                           <Row className="product_name">{product.name}</Row>
                           <Row className="product_desc">{product.description}</Row>
                           {/* <hr/> */}

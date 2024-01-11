@@ -1,0 +1,13 @@
+.total_icon
+{
+    margin-left: 360px;
+    display: flex;
+}
+
+@media screen and (Max-Width:600px){
+    .total_icon
+    {
+        margin-left: 220px;
+        display: flex;
+    }
+}

@@ -4,7 +4,8 @@ const bodyParser=require("body-parser");
 const Product=require("./src/Server/Models/productModel");
 const Register=require("./src/Server/Models/registerModel");
 const Login=require("./src/Server/Models/loginModel");
-const Cart=require("./src/Server/Models/cartModel")
+const Cart=require("./src/Server/Models/cartModel");
+const Address=require("./src/Server/Models/addressModel");
 const connectdb=require("./src/Server/configurations/db");
 const app=express();
 const PORT=process.env.PORT || 8000;
@@ -320,6 +321,50 @@ app.get('/getcart/:authToken',async (req, res) => {
         }
       });
 
+
+      //user address details endpoint while checkout
+      app.post('/useraddress',async(req,res)=>
+      {
+        try {
+          const { authToken,userAddress  } = req.body;
+          const { firstName,lastName,address,city,state,zip,country } = userAddress;
+          console.log('Received Data:', userAddress);
+            const useraddress = await Address.findOneAndUpdate(
+              { authToken: authToken },
+              {
+                $push: {
+                  userAddress: {
+                    firstName,lastName,address,city,state,zip,country
+                  },
+                },
+              },
+              { new: true, upsert: true }
+            );
+            res.status(200).json({ success: true, message: 'Address added to the user', useraddress });
+          
+        } catch (error) {
+          console.error('Error adding product to the cart:', error);
+          res.status(500).json({ error: 'Internal server error' });
+        }
+      })
+
+      //get the address of the user endpoint
+      app.get('/getaddress/:authToken',async(req,res)=>
+   {
+    try {
+        const {authToken} = req.params;
+        const User = await Address.find({authToken});
+        console.log(User);
+        if (!User) 
+        {
+            return res.status(404).json({ error: 'Address not found' });
+        }
+        res.json(User);
+      } catch (error) {
+        console.error('Error fetching product details:', error);
+        res.status(500).json({ error: 'Internal server error' });
+      }
+})
 app.listen(PORT,()=>
 {
     console.log(`Port Connected ${PORT}`);

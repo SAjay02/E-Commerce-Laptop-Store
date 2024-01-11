@@ -14,18 +14,40 @@
     height: 90%;
     width: 90%;
 }
+.img
+{
+    height: 350px;
+}
 
-@media screen and (max-width:600px) 
+@media screen and (Max-Width:600px){
+    .img{
+        margin-left: -55px;
+        margin-top: 8px;
+        width: 380px;
+        height: 300px;
+    }
+}
+/* @media screen and (max-width:600px) 
 {
 .img_cont
 {
-    height: 300px;
+    height: 00px;
     width: 400px;
     margin-top: 0px;
     padding: 0px;
 }
+} */
+@media screen and (Max-Width:600px){
+    .col_two
+{
+    margin-top: 260px;
 }
-
+}
+@media screen and (Max-Width:600px){
+    .buttons{
+        margin-left: -70px;
+    }
+}
 .product_name
 {
     /* font-family: "Roboto"; */

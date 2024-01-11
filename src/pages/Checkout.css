@@ -16,7 +16,7 @@
     {
         height: 200px;
         width: auto;
-        margin-top: -70px;
+        margin-top: -40px;
         margin-left: 70px;
         position: absolute;
     }
@@ -25,6 +25,6 @@
 @media screen and (Max-Width:600px){
     .checkout_cont
 {
-    margin-top: 110px;
+    margin-top: 130px;
 }
 }

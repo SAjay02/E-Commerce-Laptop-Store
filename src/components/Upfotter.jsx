@@ -14,9 +14,9 @@ const Upfotter = () => {
                     </div>
                     <div  className=" col-md-6 col-sm-12">
                     <div className="right_cont">
-                    <i class="fa-brands fa-facebook fb_cont"></i>
-                    <i class="fa-brands fa-linkedin lnk_cont"></i>
-                    <i class="fa-brands fa-square-instagram inst_cont"></i>
+                    <a href=""><i class="fa-brands fa-facebook fb_cont"></i></a>
+                    <a href="https://www.linkedin.com/in/ajay-s-18a7b5245/"><i class="fa-brands fa-linkedin lnk_cont"></i></a>
+                    <a><i class="fa-brands fa-square-instagram inst_cont"></i></a>
                     <p className="right_cont_last">Country / Region: <span className="last_cont">INDIA</span></p>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ const Upfotter = () => {
                             <p>Pommbukar Main Road,</p>
                             <p>Mayiladuthurai, 609001,</p>
                             <p>Tamilnadu, India</p>
-                            <p>Phone Numeber: 9600399818</p>
+                            <p>Phone Number: 9600399818</p>
                        </div>
                     </div>
             </div>

@@ -82,7 +82,7 @@ const Cart = () => {
     }
   }, [authToken]);
 
-   console.log('Cart Items:', state);
+   //console.log('Cart Items:', state);
   //  console.log('length of cart '+cartItemsFromDb.length)
 //    cartItemsFromDb.map((item, index) => {
 //   console.log(`Product ${index + 1}:`, item);
@@ -268,7 +268,6 @@ if (!cartItemsFromDb) {
           const totalPrice = Number(cartItem.cost) + 20000;
           const calculateDiscount = (Number(cartItem.cost) / totalPrice) * 100;
           const totalDiscount = Math.floor(100 - calculateDiscount);
-          let initial=1;
           return (
             <div key={cartItem.id}>
               <div
@@ -277,15 +276,18 @@ if (!cartItemsFromDb) {
               >
                 <div className="container py-4 cont">
                   <div className="row justify-content-center">
-                    <div className="col-md-4 col-lg-4">
+                    <div className="col-md-4 col-lg-4 ">
+                      <div className="">
                       <img
                         src={imgItem.img}
                         alt={cartItem.name}
-                        className="img_cont"
+                        className="img_container"
+                        style={{height:"250px"}}
                       />
+                      </div>
                     </div>
 
-                    <div className="col-md-4 col-lg-4">
+                    <div className="col-md-4 col-lg-4 col-two">
                       <h5 className="item_head">{cartItem.name}</h5>
                       <p className="item_desc">{cartItem.description}</p>
                       <p className="quan_cont">
