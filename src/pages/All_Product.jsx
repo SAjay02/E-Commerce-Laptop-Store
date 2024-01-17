@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState,useEffect } from 'react'
-import {Card,Col, Button, NavLink} from "react-bootstrap"
+import {Card,Col, Button} from "react-bootstrap"
 import "./All_Product.css";
 import Skeleton from 'react-loading-skeleton';
 import dell from "../assets/dell.png"
@@ -12,8 +12,8 @@ import hp from "../assets/hp.png"
 import msi from "../assets/msi.png"
 import mi from "../assets/mi.png"
 import samsung from "../assets/samsung.png"
-import {useNavigate} from "react-router-dom"
-
+import {useNavigate,NavLink} from "react-router-dom"
+import Cookies from 'js-cookie';
 import {useDispatch} from "react-redux"
 import {addCart} from "../redux/action"
 
@@ -60,6 +60,7 @@ const product_image=[
   }
 ]
 function ProductCard({product}) {
+  const email=Cookies.get('email');
   const imgItem = product_image.find((item) => item.id === product.id);
   const totalPrice=Number(product.cost)+20000;
 const calculateDiscount=(Number(product.cost)/totalPrice)*100;
@@ -67,18 +68,34 @@ const totalDiscount=Math.floor(Number(100-calculateDiscount));
   const navigate=useNavigate();
   function handlePass()
   {
-  //   const objectId = Types.ObjectId(product.id);
-  // navigate(`/api/products/${objectId}`);
     navigate(`/api/products/${product._id}`);
   }
   const dispatch = useDispatch();
   const addProduct = (product) => {
-    //console.log('Adding product to cart:', product);
     dispatch(addCart(product));
     toast.success(`${product.name} added to the cart!`);
 
   };
   console.log(imgItem.img);
+  const buyProduct = async(product) => {
+    
+    console.log("Buy product function called");
+    try
+    {
+      const data = {
+        authToken: email, 
+        products: product, 
+      };
+        console.log('Data:', data); 
+        await axios.put("http://localhost:8000/buyproducts",data).then((response)=>
+          console.log(response)
+        ).catch((error)=>console.log(error));
+       navigate('/directcheckout')
+    } 
+    catch(event){
+      console.log("Error:"+event);
+    }
+  };
   return (
     <>
     <div className="mt-2 shadow-1-soft mb-2  m-3">
@@ -93,7 +110,7 @@ const totalDiscount=Math.floor(Number(100-calculateDiscount));
           <Card.Text className="cost"><i className=" fa-sharp fa-solid fa-indian-rupee-sign rup_siz" ></i>{product.cost}</Card.Text>
         </Card.Body>
        <div className="d-flex justify-content-evenly mb-4 description_font">
-        <NavLink ><Button className="btn-buy-cart" onClick={handlePass}><i className=" fa-brands fa-buy-n-large fa-shake rup_siz" style={{color:"0d0d0d",fontSize:"19px"}}></i>BUY</Button></NavLink>
+        <NavLink  to="directcheckout"><Button className="btn-buy-cart"  onClick={()=>buyProduct(product)}><i className=" fa-brands fa-buy-n-large fa-shake rup_siz" style={{color:"0d0d0d",fontSize:"19px"}}></i>BUY</Button></NavLink>
           <span className="btn-buy-cart border-0 "style={{backgroundColor:"aliceblue",color:"#039703"}}><i class="fa-solid fa-bullhorn fa-beat" style={{color:"#0d0d0d",marginRight:"4px"}}></i><img src={offer} className='offer_img'/>{totalDiscount}<i class="fa-solid fa-percent mx-1"></i></span>
           </div>
         </div>

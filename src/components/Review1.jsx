@@ -9,7 +9,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import "./Review.css"
 
-const Review = () => {
+const Review1 = () => {
   const authToken = Cookies.get('email');
   const [updateaddress,setUpdateAddress]=useState([]);
   const [lastAddress, setLastAddress] = useState({});
@@ -41,10 +41,10 @@ const Review = () => {
     if(authToken)
     {
       console.log(authToken)
-    axios.get(`http://localhost:8000/getcart/${authToken}`)
+    axios.get(`http://localhost:8000/getbuy/${authToken}`)
       .then((response) => {
-        setProduct(response.data.cart.products)
-        console.log('Response ',response)
+        setProduct(response.data)
+        //console.log('Response ',response)
       })
       .catch((error) => {
         console.error('Error fetching cart items:', error);
@@ -56,19 +56,19 @@ const Review = () => {
   }, [authToken]);
 
 
-  const calculateSubtotal = (cartItem) => {
-    return Number(cartItem.cost) || 0;
-  };
+//   const calculateSubtotal = (cartItem) => {
+//     return Number(cartItem.cost) || 0;
+//   };
   
-  const calculateTotalSubtotal = () => {
-    if (product && product.length > 0) {
-      return product.reduce(
-        (total, cartItem) => Number(total) + Number(calculateSubtotal(cartItem)),
-        0
-      );
-    }
-    return 0;
-  }
+//   const calculateTotalSubtotal = () => {
+//     if (product && product.length > 0) {
+//       return product.reduce(
+//         (total, cartItem) => Number(total) + Number(calculateSubtotal(cartItem)),
+//         0
+//       );
+//     }
+//     return 0;
+//   }
 
   return (
     <div>
@@ -89,7 +89,7 @@ const Review = () => {
         </Typography>
          <div  className="total_icon">
          <i className=" fa-sharp fa-solid fa-indian-rupee-sign fa-xs rup_subtot" ></i>
-         {`${calculateTotalSubtotal()}.00`}
+         {product && product.map((product) => (`${product.cost}.00`))} 
          </div>
          </ListItem>
       </List> 
@@ -115,4 +115,4 @@ const Review = () => {
   )
 }
 
-export default Review
+export default Review1

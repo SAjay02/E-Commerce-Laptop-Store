@@ -30,7 +30,7 @@ function Copyright() {
   
   const steps = ['Shipping address', 'Review your order'];
   
-const Checkout = ({shown,setshown}) => {
+const Checkout1 = ({shown,setshown}) => {
   const activeStepRef = React.useRef(0);
     const authToken = Cookies.get('email');
     const [product,setProduct]=useState();
@@ -122,7 +122,7 @@ const Checkout = ({shown,setshown}) => {
             SetOrderedId(response.data.paymentIntent.id)
             setActiveStep(activeStep + 1);
 
-            axios.delete('http://localhost:8000/delteQuantity')
+            
 
         }
   } catch (error) {
@@ -194,4 +194,4 @@ const Checkout = ({shown,setshown}) => {
   )
 }
 
-export default Checkout
+export default Checkout1

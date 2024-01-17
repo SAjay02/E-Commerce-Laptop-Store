@@ -6,6 +6,7 @@ const Register=require("./src/Server/Models/registerModel");
 const Login=require("./src/Server/Models/loginModel");
 const Cart=require("./src/Server/Models/cartModel");
 const Address=require("./src/Server/Models/addressModel");
+const Buy=require("./src/Server/Models/buyModel"); 
 const connectdb=require("./src/Server/configurations/db");
 const app=express();
 const PORT=process.env.PORT || 8000;
@@ -13,6 +14,8 @@ const jwt=require("jsonwebtoken");
 const bcrypt =require("bcrypt")
 const cookieParser=require("cookie-parser")
 const router = express.Router();
+const {v4:uuidv4}=require("uuid")
+const stripe=require("stripe")("sk_test_51OWY6hSAa0gR3mOKzwpZGNdcKXGaIVoCWdG6o8OZo4jBatqSYdR6SvZ2cLJUzF9g3igQV1ZNZa29K9q1eD1HSwBr00U9i0xYQZ", { apiVersion: '2023-10-16' });
 
 app.use(express.json());
 app.use(cors());
@@ -365,6 +368,87 @@ app.get('/getcart/:authToken',async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
       }
 })
+
+    //post the payment of user
+    app.post(('/payment'),async(req,res)=>
+    {
+      try {
+      const {token,totalAmount} = req.body;
+      console.log(token);
+      console.log(totalAmount)
+
+    const customer = await stripe.customers.create({
+      email: token.email,
+      source: token.id,
+    });
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: totalAmount*100,
+      currency: 'inr',
+      customer: customer.id,
+      receipt_email: token.email,
+      description: 'Laptop',
+    });
+    console.log('Payment successful:', paymentIntent);
+    res.status(200).json({ success: true, message: 'Payment successful', paymentIntent });
+
+  } catch (error) {
+    console.error('Error processing payment:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+    })
+    //update the buy product endpoint
+  app.put('/buyproducts',  async (req, res) => {
+    try {
+      const { authToken,products  } = req.body;
+      const { name, id, description, quantity, cost } = products;
+      console.log('Received Data:', products);
+      const User =await Buy.find({authToken})
+      if(!User)
+      {
+        await Buy.create({
+          authToken,
+          name, id, description, quantity, cost
+        })
+        res.json({message:"Product Added"})
+      }
+      else
+      {
+        const user = await Buy.findOneAndUpdate(
+          { authToken: authToken },
+          {
+            $set: {
+              name, id, description, quantity, cost
+            },
+          },
+          { new: true, upsert: true }
+        );
+        res.status(200).json({ success: true, message: 'Address added to the user', user });
+      }
+    } catch (error) {
+      console.error('Error adding product to the cart:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+    //get the address of the user endpoint
+    app.get('/getbuy/:authToken',async(req,res)=>
+    {
+     try {
+         const {authToken} = req.params;
+         const User = await Buy.find({authToken});
+         console.log(User);
+         if (!User) 
+         {
+             return res.status(404).json({ error: 'Address not found' });
+         }
+         res.json(User);
+       } catch (error) {
+         console.error('Error fetching product details:', error);
+         res.status(500).json({ error: 'Internal server error' });
+       }
+ })
+
 app.listen(PORT,()=>
 {
     console.log(`Port Connected ${PORT}`);

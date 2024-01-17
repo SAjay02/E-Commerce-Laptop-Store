@@ -11,6 +11,7 @@ import StickyFooter from "./components/Footer";
 import Cart from "./pages/Cart"
 import ScrollToTop from "./components/ScrollToTop"
 import Checkout from "./pages/Checkout";
+import Checkout1 from "./pages/Checkout1"
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
       <Route Component={SpecificProduct} path="/api/products/:id"></Route>
       <Route Component={Checkout} path="/checkout"></Route>
       <Route path="/getcart/:authToken" element={<Cart />} />
+      <Route Component={Checkout1} path="/directcheckout"></Route>
     </Routes>
     
     <StickyFooter/> 
