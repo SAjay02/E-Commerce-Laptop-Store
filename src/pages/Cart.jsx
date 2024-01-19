@@ -235,6 +235,7 @@ const calculateTotalSubtotal = () => {
 if (!cartItemsFromDb) {
   return <div>Loading...</div>; // You can replace this with a loading component
 }
+console.log(cartItemsFromDb)
   return (
     <>
         <div className="head">
@@ -245,7 +246,7 @@ if (!cartItemsFromDb) {
        {/* {state.length === 0 && emptyCart()}
         {state.length !== 0 && state.map(cartItems)}
         {state.length !== 0 && button()} */}
-       {cartItemsFromDb.length === 0 && (
+       { cartItemsFromDb.length === 0 && (
         <div className="px-4 my-5 bg-light rounded-3 ">
           <div className="container py-4">
             <div className="row">
@@ -261,7 +262,7 @@ if (!cartItemsFromDb) {
             </div>
           </div>
         </div>
-      )}
+       )}
       {cartItemsFromDb.length !== 0 &&
         cartItemsFromDb.map((cartItem) => {
           const imgItem = product_image.find((item) => item.id === cartItem.id);

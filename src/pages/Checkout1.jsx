@@ -13,7 +13,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import AddressForm from '../components/AddressForm';
 import PaymentForm from '../components/PaymentForm';
-import Review from '../components/Review';
+import Review1 from '../components/Review1';
 import "./Checkout.css"
 import StripeCheckout from "react-stripe-checkout"
 import axios from "axios";
@@ -33,7 +33,9 @@ function Copyright() {
 const Checkout1 = ({shown,setshown}) => {
   const activeStepRef = React.useRef(0);
     const authToken = Cookies.get('email');
-    const [product,setProduct]=useState();
+    const [product,setProduct]=useState([]);
+    const [updateproduct,setUpdateProduct]=useState({});
+    const [singlePro,setSinglePro]=useState();
     const [activeStep, setActiveStep] = React.useState(0);
     const [isAddressValid, setIsAddressValid] = React.useState(false);
     const [isStripeCheckoutOpen, setIsStripeCheckoutOpen] = React.useState(false);
@@ -64,20 +66,38 @@ const Checkout1 = ({shown,setshown}) => {
       case 0:
         return <AddressForm handleNext={handleNext}/>;
       case 1:
-        return  <Review />
+        return  <Review1 />
       default:
         console.error('Unknown step:', step); 
       throw new Error('Unknown step');
     }
   }
 
+  // useEffect(() => {
+  //   if(authToken)
+  //   {
+  //     console.log(authToken)
+  //   axios.get(`http://localhost:8000/getcart/${authToken}`)
+  //     .then((response) => {
+  //       setProduct(response.data.cart.products)
+  //       console.log('Response ',response)
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching cart items:', error);
+  //     });
+  //   }else
+  //   {
+  //     setProduct([]);
+  //   }
+  // }, [authToken]);
+
   useEffect(() => {
     if(authToken)
     {
       console.log(authToken)
-    axios.get(`http://localhost:8000/getcart/${authToken}`)
+    axios.get(`http://localhost:8000/getbuy/${authToken}`)
       .then((response) => {
-        setProduct(response.data.cart.products)
+        setProduct(response.data[0])
         console.log('Response ',response)
       })
       .catch((error) => {
@@ -89,26 +109,29 @@ const Checkout1 = ({shown,setshown}) => {
     }
   }, [authToken]);
 
-  const calculateSubtotal = (cartItem) => {
-    return Number(cartItem.cost) || 0;
-  };
+  console.log(product)
+  // const calculateSubtotal = (cartItem) => {
+  //   return Number(cartItem.cost) || 0;
+  // };
   
-  const calculateTotalSubtotal = () => {
-    if (product && product.length > 0) {
-      return product.reduce(
-        (total, cartItem) => Number(total) + Number(calculateSubtotal(cartItem)),
-        0
-      );
-    }
-    return 0;
-  }
+  // const calculateTotalSubtotal = () => {
+  //   if (product && product.length > 0) {
+  //     return product.reduce(
+  //       (total, cartItem) => Number(total) + Number(calculateSubtotal(cartItem)),
+  //       0
+  //     );
+  //   }
+  //   return 0;
+  // }
   useEffect(() => {
     const stripePromise = loadStripe('pk_test_51OWY6hSAa0gR3mOK7tEkbjk0Of1mbFXg50SpEaBUngxlm11O8Dxua1FlGKQOJA9s2BOtAOyO3JxXSe83d9ASzSVI00IiMiis5n');
 
     stripePromise.then((stripe) => {
     });
   }, []);
-  const totalAmount=calculateTotalSubtotal();
+  // const totalAmount=calculateTotalSubtotal();
+  const totalAmount=product.cost;
+  // console.log(product[product.length-1])
   const makePayment =async(token)=>
   {
     const data={
@@ -122,8 +145,16 @@ const Checkout1 = ({shown,setshown}) => {
             SetOrderedId(response.data.paymentIntent.id)
             setActiveStep(activeStep + 1);
 
-            
+            // const productID = [];
+            // product.forEach((item) => {
+            // productID.push(item.id);
+            // });
+            const data={
+              quantity:product.id
+            }
+            await axios.delete('http://localhost:8000/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error));            
 
+          // await axios.delete(`http://localhost:8000/deleteItem/${authToken}`).then((response)=>console.log(response)).catch((error)=>console.log(error));
         }
   } catch (error) {
     console.log("Error:", error);
@@ -179,7 +210,7 @@ const Checkout1 = ({shown,setshown}) => {
                   stripeKey='pk_test_51OWY6hSAa0gR3mOK7tEkbjk0Of1mbFXg50SpEaBUngxlm11O8Dxua1FlGKQOJA9s2BOtAOyO3JxXSe83d9ASzSVI00IiMiis5n'
                   token={makePayment}
                   name='Laptop' 
-                  amount={`${calculateTotalSubtotal()*100}.00`}
+                  amount={`${product.cost*100}.00`}
                   currency='INR' 
                   >Place order</StripeCheckout>  : 'Next'}
                 </Button>

@@ -431,6 +431,7 @@ app.get('/getcart/:authToken',async (req, res) => {
     }
   });
 
+ 
     //get the address of the user endpoint
     app.get('/getbuy/:authToken',async(req,res)=>
     {
@@ -449,6 +450,82 @@ app.get('/getcart/:authToken',async (req, res) => {
        }
  })
 
+
+    //delete the item of the product endpoint
+    app.delete('/deleteQuantity',async(req,res)=>
+    {
+      try
+      {
+      const quantity = req.body;
+      console.log('quantity ' + quantity);
+      for (const productID of quantity) {
+        const product = await Product.findOne({ id: productID });
+
+        if (product) {
+          if(parseInt(product.quantity)>0)
+          {
+          const updatedQuantity = parseInt(product.quantity) - 1;
+          await Product.updateOne({ id: productID }, { quantity: updatedQuantity });
+          }
+      } else {
+          console.log(`Product with ID ${productID} not found.`);
+      }
+    }
+      res.status(200).json({ success: true, message: 'Quantity updated successfully' });
+    } catch (error) {
+        console.error('Error updating quantity:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+    })
+
+    //delete the item of the product endpoint
+    app.delete('/deleteQuantity1',async(req,res)=>
+    {
+      try
+      {
+      const {quantity} = req.body;
+      console.log('single '+ quantity);
+      const product = await Product.findOne({ id: quantity });
+
+        if (product) {
+            if (parseInt(product.quantity) > 0) {
+
+                const updatedQuantity = parseInt(product.quantity) - 1;
+                await Product.updateOne({ id: quantity }, { quantity: updatedQuantity });
+
+                res.status(200).json({ success: true, message: 'Quantity updated successfully' });
+            } else {
+                res.status(400).json({ success: false, message: 'Quantity cannot be less than 0' });
+            }
+        } else {
+            console.log(`Product with ID ${quantity} not found.`);
+            res.status(404).json({ success: false, message: 'Product not found' });
+        }
+    } catch (error) {
+        console.error('Error updating quantity:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+    })
+
+    //delete the whole item in the cart endpoint
+    app.delete('/deleteItem/:authToken',async(req,res)=>
+    {
+      try
+      {
+          const {authToken} =req.params;
+          const findItem = Cart.findOne({authToken});
+          if(findItem)
+          {
+            await Cart.deleteOne({ authToken });
+           res.status(200).json({ success: true, message: 'Cart deleted successfully' });
+    } else {
+          }
+      }catch(error)
+      {
+        console.error('Error deleting cart:', error);
+        res.status(500).json({ error: 'Internal server error' });
+      }
+    })
 app.listen(PORT,()=>
 {
     console.log(`Port Connected ${PORT}`);

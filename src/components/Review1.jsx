@@ -44,7 +44,7 @@ const Review1 = () => {
     axios.get(`http://localhost:8000/getbuy/${authToken}`)
       .then((response) => {
         setProduct(response.data)
-        //console.log('Response ',response)
+        console.log('Response ',response)
       })
       .catch((error) => {
         console.error('Error fetching cart items:', error);
@@ -54,7 +54,6 @@ const Review1 = () => {
       setProduct([]);
     }
   }, [authToken]);
-
 
 //   const calculateSubtotal = (cartItem) => {
 //     return Number(cartItem.cost) || 0;

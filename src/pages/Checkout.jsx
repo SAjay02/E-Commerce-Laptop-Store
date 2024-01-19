@@ -122,8 +122,15 @@ const Checkout = ({shown,setshown}) => {
             SetOrderedId(response.data.paymentIntent.id)
             setActiveStep(activeStep + 1);
 
-            axios.delete('http://localhost:8000/delteQuantity')
-
+            const productID = [];
+            product.forEach((item) => {
+            productID.push(item.id);
+            });
+            await axios.delete('http://localhost:8000/deleteQuantity',{
+              data: productID 
+          }).then((response)=>console.log(response)).catch((error)=>console.log(error));
+            
+            await axios.delete(`http://localhost:8000/deleteItem/${authToken}`).then((response)=>console.log(response)).catch((error)=>console.log(error));
         }
   } catch (error) {
     console.log("Error:", error);
