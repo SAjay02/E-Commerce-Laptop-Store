@@ -21,7 +21,7 @@ import Cookies from 'js-cookie';
 import side from "../assets/sidecheck.png"
 import { useEffect,useState } from 'react';
 import {loadStripe} from "@stripe/stripe-js"
-
+import Googlemap from '../components/Googlemap';
 function Copyright() {
     return (
     <></>
@@ -110,19 +110,6 @@ const Checkout1 = ({shown,setshown}) => {
   }, [authToken]);
 
   console.log(product)
-  // const calculateSubtotal = (cartItem) => {
-  //   return Number(cartItem.cost) || 0;
-  // };
-  
-  // const calculateTotalSubtotal = () => {
-  //   if (product && product.length > 0) {
-  //     return product.reduce(
-  //       (total, cartItem) => Number(total) + Number(calculateSubtotal(cartItem)),
-  //       0
-  //     );
-  //   }
-  //   return 0;
-  // }
   useEffect(() => {
     const stripePromise = loadStripe('pk_test_51OWY6hSAa0gR3mOK7tEkbjk0Of1mbFXg50SpEaBUngxlm11O8Dxua1FlGKQOJA9s2BOtAOyO3JxXSe83d9ASzSVI00IiMiis5n');
 
@@ -144,17 +131,10 @@ const Checkout1 = ({shown,setshown}) => {
             setIsPaymentSuccessful(true);
             SetOrderedId(response.data.paymentIntent.id)
             setActiveStep(activeStep + 1);
-
-            // const productID = [];
-            // product.forEach((item) => {
-            // productID.push(item.id);
-            // });
             const data={
               quantity:product.id
             }
             await axios.delete('http://localhost:8000/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error));            
-
-          // await axios.delete(`http://localhost:8000/deleteItem/${authToken}`).then((response)=>console.log(response)).catch((error)=>console.log(error));
         }
   } catch (error) {
     console.log("Error:", error);
@@ -187,6 +167,9 @@ const Checkout1 = ({shown,setshown}) => {
                 Your ordered id is {`${orderedId}`}. We have emailed your order
                 confirmation to {`${authToken}`}, and will send you an update when your order has
                 shipped.
+              </Typography>
+              <Typography>
+                <Googlemap/>
               </Typography>
             </React.Fragment>
           ) : (

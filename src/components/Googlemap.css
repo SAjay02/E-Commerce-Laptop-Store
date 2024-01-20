@@ -1,0 +1,19 @@
+.map_cont
+{
+    height: 380px;
+    width: 600px;
+    margin-top: -280px;
+    position: absolute;
+    margin-left: -660px;
+}
+
+@media screen and (Max-Width:600px){
+    .map_cont
+    {
+    height: 80px;
+    width: 60px;
+    /* margin-top: -280px; */
+    /* position: absolute; */
+    /* margin-left: -660px; */
+    }
+}

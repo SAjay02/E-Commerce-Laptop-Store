@@ -28,6 +28,7 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "font-awesome": "^4.7.0",
+    "google-maps-react": "^2.0.6",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "mdb-react-ui-kit": "^7.0.0",
