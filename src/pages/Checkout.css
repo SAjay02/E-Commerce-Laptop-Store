@@ -28,3 +28,10 @@
     margin-top: 130px;
 }
 }
+
+.go_home
+{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}

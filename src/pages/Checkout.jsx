@@ -21,6 +21,8 @@ import Cookies from 'js-cookie';
 import side from "../assets/sidecheck.png"
 import { useEffect,useState } from 'react';
 import {loadStripe} from "@stripe/stripe-js"
+import Googlemap from '../components/Googlemap';
+import {useNavigate} from "react-router-dom"
 
 function Copyright() {
     return (
@@ -31,7 +33,7 @@ function Copyright() {
   const steps = ['Shipping address', 'Review your order'];
   
 const Checkout = ({shown,setshown}) => {
-  const activeStepRef = React.useRef(0);
+    const navigate=useNavigate();
     const authToken = Cookies.get('email');
     const [product,setProduct]=useState();
     const [activeStep, setActiveStep] = React.useState(0);
@@ -163,6 +165,13 @@ const Checkout = ({shown,setshown}) => {
                 Your ordered id is {`${orderedId}`}. We have emailed your order
                 confirmation to {`${authToken}`}, and will send you an update when your order has
                 shipped.
+              </Typography>
+              <h6 variant="subtitle2" className='go_home' onClick={()=>navigate('/')}>
+              <i class="fa-solid fa-arrow-left me-2" style={{color: "#0978e3"}}></i>
+                GO BACK HOME
+              </h6>
+              <Typography>
+                <Googlemap/>
               </Typography>
             </React.Fragment>
           ) : (
