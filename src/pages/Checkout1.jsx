@@ -23,6 +23,8 @@ import { useEffect,useState } from 'react';
 import {loadStripe} from "@stripe/stripe-js"
 import Googlemap from '../components/Googlemap';
 import {useNavigate} from "react-router-dom"
+import emailjs from '@emailjs/browser';
+
 function Copyright() {
     return (
     <></>
@@ -117,12 +119,21 @@ const Checkout1 = ({shown,setshown}) => {
             const data={
               quantity:product.id
             }
-            await axios.delete('http://localhost:8000/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error));            
+            await axios.delete('http://localhost:8000/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+          
         }
   } catch (error) {
     console.log("Error:", error);
   }
   }
+  useEffect(() => {
+    if (isPaymentSuccessful) {
+      axios
+        .post('http://localhost:8000/sendemail', { authToken, orderedId })
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
+    }
+  }, [isPaymentSuccessful]);
   return (
     <div className="full_cont">
          <img src={side}className="img_cont"/>

@@ -17,6 +17,8 @@ const router = express.Router();
 const {v4:uuidv4}=require("uuid")
 const stripe=require("stripe")("sk_test_51OWY6hSAa0gR3mOKzwpZGNdcKXGaIVoCWdG6o8OZo4jBatqSYdR6SvZ2cLJUzF9g3igQV1ZNZa29K9q1eD1HSwBr00U9i0xYQZ", { apiVersion: '2023-10-16' });
 
+const nodeMailer = require('nodemailer');
+
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
@@ -525,6 +527,39 @@ app.get('/getcart/:authToken',async (req, res) => {
         console.error('Error deleting cart:', error);
         res.status(500).json({ error: 'Internal server error' });
       }
+    })
+
+    //send conformation mail to the user 
+    app.post('/sendemail',async(req,res)=>
+    {
+      const mail=req.body;
+      console.log(mail);
+      console.log(mail.orderedId);
+        var sender = nodeMailer.createTransport({
+          service:'gmail',
+          auth:{
+            user : '56510.ajay@gmail.com',
+            pass : 'abxg pwiy wqeq fhwb'
+          }
+        });
+
+        var composemail = {
+          from : '56510.ajay@gmail.com',
+          to: mail.authToken,
+          subject : `Order ${mail.orderedId} is successfully confirmed`,
+          text:'We will send you an update when your order has shipped.'
+        }
+        sender.sendMail(composemail,function(error,info)
+        {
+          if(error)
+          {
+            console.log(error);
+          }
+          else
+          {
+            console.log("Mail Done :"+info.response)
+          }
+        })
     })
 app.listen(PORT,()=>
 {

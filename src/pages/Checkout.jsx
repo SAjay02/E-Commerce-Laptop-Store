@@ -138,6 +138,14 @@ const Checkout = ({shown,setshown}) => {
     console.log("Error:", error);
   }
   }
+  useEffect(() => {
+    if (isPaymentSuccessful) {
+      axios
+        .post('http://localhost:8000/sendemail', { authToken, orderedId })
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error));
+    }
+  }, [isPaymentSuccessful]);
   return (
     <div className="full_cont">
          <img src={side}className="img_cont"/>

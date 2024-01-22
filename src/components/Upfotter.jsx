@@ -1,15 +1,25 @@
-import React from 'react'
-import { Row,Col } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Row,Col,Form } from 'react-bootstrap'
+import toast from "react-hot-toast"
 import "./Upfotter.css"
 const Upfotter = () => {
+        const [email,setEmail]=useState('');
+        const handleSubmit=(e)=>
+        {
+           e.preventDefault(); 
+           setEmail('');
+           toast.success("Mail Sent Successfully");
+        }
   return (
         <div className="upfoo_head ">
             <div className="row head_one">
                     <div className="col-md-6 col-sm-12">
                     <div className="left_cont ">
+                        <Form action="" onSubmit={handleSubmit}>
                         <p>Enter Email to receive valuable updates</p>
-                        <input type="email" placeholder="Email" className="input_cont"></input>
-                        <i class="fa-solid fa-arrow-right arrow_cont" ></i>
+                        <input type="email" placeholder="Email" className="input_cont" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+                        <button  type="submit"><i class="fa-solid fa-arrow-right arrow_cont"></i></button>
+                        </Form>
                     </div>
                     </div>
                     <div  className=" col-md-6 col-sm-12">
