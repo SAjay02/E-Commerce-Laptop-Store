@@ -263,3 +263,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .avail_cont
+  {
+    margin-top: 2px;
+  }
+
+  @media screen and (Max-Width:600px){
+    .avail_cont
+    {
+        
+    }
+  }

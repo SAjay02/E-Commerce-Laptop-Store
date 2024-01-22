@@ -18,6 +18,15 @@ import axios from 'axios';
 import {toast,Toaster} from "react-hot-toast"
 import Cookies from 'js-cookie';
 import Searchbar from './Searchbar';
+import ToastContact from './ToastContact';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
+const CustomTooltip = ({ children }) => (
+  <div style={{ backgroundColor: 'red', color: 'white', padding: '10px', borderRadius: '5px' }}>
+    {children}
+  </div>
+);
 
 const Navbar_Comp = ({sections }) => {
 
@@ -106,12 +115,13 @@ const Navbar_Comp = ({sections }) => {
           <Nav className="justify-content-between"  defaultActiveKey="/home">
             <NavDropdown title="Products" id="collapsible-nav-dropdown" className="nav-items-clr" style={{fontSize:""}}>
               <NavDropdown.Item as={Link} to="/all_products" className='common_under'>All Products</NavDropdown.Item>
-              {/* <NavDropdown.Item as={Link} to="/add_products" className='common_under'>
-                Add Products
-              </NavDropdown.Item> */}
             </NavDropdown>
             <Nav.Link as={ScrollLink} to="about" smooth={true} duration={100} className="nav-items-clr about_cont">About</Nav.Link>
-            <Nav.Link  className="nav-items-clr">Contact</Nav.Link>
+            <OverlayTrigger  placement="bottom" overlay={
+            <Tooltip className='contact_toolpik'><i class="fa-solid fa-phone me-1" style={{color: "#74C0FC"}}></i>Telephone : 2212345678</Tooltip>
+            }>
+           <Nav.Link className="nav-items-clr">Contact</Nav.Link>
+           </OverlayTrigger>
           </Nav>
         </Navbar.Collapse>
           <Searchbar setSelectedProduct={setSelectedProduct}/>

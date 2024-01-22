@@ -165,8 +165,40 @@ useEffect(() => {
                             <Row>
                               <div className="spcl_offer">
                               <i class="fa-solid fa-tag tag_icon" style={{color: "#4fde60"}}></i>
-                              <span>Special Offer</span>
-                              <p>Get extra 10% off (first time new user to buy)</p>
+                              <span className="avail_cont" style={{color:"#212121"}}>Special Offer</span>
+                              <p className="avail_cont">Get extra 25% off (price inclusive of cashback/coupon).</p>
+                              </div>
+                            </Row>
+                            <Row>
+                              <div className="spcl_offer">
+                              <i class="fa-solid fa-tag tag_icon" style={{color: "#4fde60"}}></i>
+                              <span className="avail_cont" style={{color:"#212121"}}>Special Offer</span>
+                              <p className="avail_cont">Get extra 10% off (first time new user to buy).</p>
+                              </div>
+                            </Row>
+                            <Row>
+                              <div className="spcl_offer">
+                              <i class="fa-solid fa-tag tag_icon" style={{color: "#4fde60"}}></i>
+                              <p className="avail_cont">Buy This Product and get ₹500 Off on Next AC Purchase*.</p>
+                              </div>
+                            </Row>
+                            <Row>
+                              <div className="spcl_offer">
+                              <i class="fa-solid fa-tag tag_icon" style={{color: "#4fde60"}}></i>
+                              <p className="avail_cont">If your are student get extra ₹1000 Off.</p>
+                              </div>
+                            </Row>
+                            <Row>
+                              <div className="spcl_offer">
+                              <i class="fa-solid fa-tag tag_icon" style={{color: "#4fde60"}}></i>
+                              <span className="avail_cont" style={{color:"#212121"}}>Bank Offer</span>
+                              <p className="avail_cont">5% Cashback on Flipkart Axis Bank Card.</p>
+                              </div>
+                            </Row>
+                            <Row>
+                              <div className="spcl_offer">
+                              <i class="fa-solid fa-tag tag_icon" style={{color: "#4fde60"}}></i>
+                              <p className="avail_cont">Buy for 100 get ₹200 off your Next Buy.</p>
                               </div>
                             </Row>
                           </Col>
