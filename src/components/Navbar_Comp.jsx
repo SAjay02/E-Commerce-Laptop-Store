@@ -177,7 +177,7 @@ const Navbar_Comp = ({sections }) => {
               </NavDropdown.Item>
             </NavDropdown>
             {/* <Nav.Link as={ScrollLink} to="about" smooth={true} duration={100} className="nav-items-clr about_cont">About</Nav.Link> */}
-            <Nav.Link  className="nav-items-clr">DashBoard</Nav.Link>
+            <Nav.Link as={Link} to="/dashboard" className="nav-items-clr">DashBoard</Nav.Link>
           </Nav>
         </Navbar.Collapse>
           <Searchbar setSelectedProduct={setSelectedProduct}/>

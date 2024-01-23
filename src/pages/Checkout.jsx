@@ -33,6 +33,8 @@ function Copyright() {
   const steps = ['Shipping address', 'Review your order'];
   
 const Checkout = ({shown,setshown}) => {
+   const [updateaddress,setUpdateAddress]=useState([]);
+    const [lastAddress, setLastAddress] = useState({});
     const navigate=useNavigate();
     const authToken = Cookies.get('email');
     const [product,setProduct]=useState();
@@ -41,6 +43,26 @@ const Checkout = ({shown,setshown}) => {
     const [isStripeCheckoutOpen, setIsStripeCheckoutOpen] = React.useState(false);
     const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
     const [orderedId,SetOrderedId]=useState('');
+
+    useEffect(()=>
+    {
+      axios.get(`http://localhost:8000/getaddress/${authToken}`)
+      .then((response)=>
+      {
+        setUpdateAddress(response.data[0].userAddress);
+      })
+      .catch((error) => {
+        console.error('Error fetching cart items:', error);
+      });
+    },[authToken]);
+  
+    useEffect(() => {
+      if (updateaddress && updateaddress.length > 0) {
+        const lastAddressData = updateaddress[updateaddress.length - 1];
+        setLastAddress(lastAddressData);
+      }
+    }, [updateaddress]);
+
   const handleNext = () => {
     if (activeStep === 0) {
       const addressForm = document.getElementById('addressForm'); 
@@ -133,6 +155,14 @@ const Checkout = ({shown,setshown}) => {
           }).then((response)=>console.log(response)).catch((error)=>console.log(error));
             
             await axios.delete(`http://localhost:8000/deleteItem/${authToken}`).then((response)=>console.log(response)).catch((error)=>console.log(error));
+
+            const date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let currentDate = `${day}-${month}-${year}`;
+
+            await axios.post('http://localhost:8000/recentOrders',{Name:lastAddress.firstName,City:lastAddress.city,State:lastAddress.state,Payment:token.card.brand,LastDigits:token.card.last4,Amount:totalAmount,Date:currentDate}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
         }
   } catch (error) {
     console.log("Error:", error);

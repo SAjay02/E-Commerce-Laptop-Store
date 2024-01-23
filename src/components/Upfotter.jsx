@@ -1,15 +1,39 @@
 import React, { useState } from 'react'
 import { Row,Col,Form } from 'react-bootstrap'
 import toast from "react-hot-toast"
+import emailjs from '@emailjs/browser';
 import "./Upfotter.css"
+import Cookies from 'js-cookie';
+
 const Upfotter = () => {
         const [email,setEmail]=useState('');
+        const authToken = Cookies.get('email');
         const handleSubmit=(e)=>
         {
            e.preventDefault(); 
            setEmail('');
            toast.success("Mail Sent Successfully");
-        }
+
+           const serviceId = 'service_pezcy9z';
+           const templateId = 'template_1bevlzm';
+           const publicKey = '1UdyIvKr90_b45YSS';
+
+           const object = {
+                from_name:'User',
+                from_mail:authToken,
+                to_name:'Admin',
+                message:"Send valuable updates to my mail"
+           }
+
+           //send mail to admin
+           emailjs.send(serviceId, templateId, object, publicKey)
+           .then((result) => {
+               console.log(result.text);
+           }, (error) => {
+               console.log(error.text);
+           });
+       };
+        
   return (
         <div className="upfoo_head ">
             <div className="row head_one">

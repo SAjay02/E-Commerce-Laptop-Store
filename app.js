@@ -7,6 +7,7 @@ const Login=require("./src/Server/Models/loginModel");
 const Cart=require("./src/Server/Models/cartModel");
 const Address=require("./src/Server/Models/addressModel");
 const Buy=require("./src/Server/Models/buyModel"); 
+const RecentOrders = require("./src/Server/Models/recentModel");
 const connectdb=require("./src/Server/configurations/db");
 const app=express();
 const PORT=process.env.PORT || 8000;
@@ -48,7 +49,7 @@ app.post("/",async(req,res)=>
 }) 
 
  
-//get data from db
+//get all product  data from db endpoint
 app.get('/api/products', async (req,res)=>{
     const products = await Product.find({})
     availableProducts.push(products)
@@ -560,6 +561,29 @@ app.get('/getcart/:authToken',async (req, res) => {
             console.log("Mail Done :"+info.response)
           }
         })
+    })
+
+    //send user recent order to admin dashboard endpoint
+    app.post('/recentOrders',async(req,res)=>
+    {
+      try{
+        console.log('Received Data:',req.body);
+        const orders = await new RecentOrders(req.body);
+        const savedOrders=await  orders.save();
+        res.status(201).json(savedOrders);
+    }catch(error)
+    {
+        console.log("Error",error);
+        res.status(500).json({error:"Internal Server Error"})
+    }
+    })
+
+    //get the recent orders to admin dashboard endpoint
+    app.get('/api/recentOrders',async(req,res)=>
+    {
+      const orders = await RecentOrders.find({});
+      console.log(orders);
+      res.send(orders)
     })
 app.listen(PORT,()=>
 {
