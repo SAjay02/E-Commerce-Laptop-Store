@@ -6,7 +6,7 @@
     margin-top: -33px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .error-message2
     {
         color: red;
@@ -41,7 +41,7 @@
     margin-left: 100px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .note_Cont
     {
         font-family: "Amazon Ember",Arial,sans-serif;

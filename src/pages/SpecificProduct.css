@@ -19,7 +19,7 @@
     height: 350px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .img{
         margin-left: -55px;
         margin-top: 8px;
@@ -37,13 +37,13 @@
     padding: 0px;
 }
 } */
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .col_two
 {
     margin-top: 260px;
 }
 }
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .buttons{
         margin-left: -70px;
     }
@@ -56,7 +56,7 @@
     color: #0f1111;
    
 }
-@media screen and (max-Width:600px) 
+@media screen and (max-Width:400px) 
 {
     .product_name
 {
@@ -84,7 +84,7 @@
     color: #212121
 }
 
-@media screen and (max-Width:600px)
+@media screen and (max-Width:400px)
 {
     .product_cost
     {
@@ -103,7 +103,7 @@
     margin-top: 5px;
 }
 
-@media screen and (max-Width:600px) 
+@media screen and (max-Width:400px) 
 {
     .rup_siz
     {
@@ -119,7 +119,7 @@
     text-decoration: line-through;
 }
 
-@media screen and (max-Width:600px) 
+@media screen and (max-Width:400px) 
 {
     .dicount
     {
@@ -146,7 +146,7 @@
     color: #039703;
 }
 
-@media screen and (max-Width:600px) 
+@media screen and (max-Width:400px) 
 {
     .discount_offer
     {
@@ -176,7 +176,7 @@
     letter-spacing: 0;
     font-weight: 900;
 }
-@media screen and (max-width:600px) 
+@media screen and (max-width:400px) 
 {
     .btn-buy
 {
@@ -208,7 +208,7 @@
     /* display: inline-flex; */
     
 }
-@media screen and (max-width:600px) 
+@media screen and (max-width:400px) 
 {
     .btn-add
 {
@@ -269,7 +269,7 @@
     margin-top: 2px;
   }
 
-  @media screen and (Max-Width:600px){
+  @media screen and (Max-Width:400px){
     .avail_cont
     {
         

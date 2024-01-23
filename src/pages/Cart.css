@@ -25,7 +25,7 @@ body
     margin-top: 100px;
     
 } 
-@media screen and (max-Width:600px) {
+@media screen and (max-Width:400px) {
     .heading_cont
     {
             font-weight: 400;
@@ -48,7 +48,7 @@ body
     font-size: 17px;
     margin-left: 1100px;
 }
-@media screen and (max-Width:600px) {
+@media screen and (max-Width:400px) {
     .head_last_cont
     {
         display: none;
@@ -60,7 +60,7 @@ body
     /* margin-top: -100px; */
     /* height: 250px; */
 }
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .img_container
     {
         height: 200px;
@@ -103,7 +103,7 @@ body
     display: flex;
     font-family: "Amazon Ember",Arial,sans-serif
 }
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .dicount
     {
         font-size: 13px;
@@ -177,7 +177,7 @@ body
     margin-bottom: 10px;
     margin-left: 20px;
 }
-@media screen and (max-Width:600px){
+@media screen and (max-Width:400px){
     .btn_remove
 {
     border-radius: 40px;
@@ -218,7 +218,7 @@ body
     font-family: Arial,  sans-serif;
 }
 
-@media screen and (max-Width:600px) {
+@media screen and (max-Width:400px) {
     .all_prices
     {
         margin-top: -135px;
@@ -230,7 +230,7 @@ body
     height: 300px;
     width: auto;
 }
-@media screen and (max-Width:600px){
+@media screen and (max-Width:400px){
     .empty_cart_img{
         height: 250px;
         width: 300px;
@@ -242,7 +242,7 @@ body
     margin-left: 250px;
 }
 
-@media screen and (max-Width:600px){
+@media screen and (max-Width:400px){
     .empty_cart_head{
         margin-left: 0px;
         margin-top: 65px ;
@@ -257,7 +257,7 @@ body
     margin-top: -40px;
     width: 25%;
 }
-@media screen and (max-Width:600px){
+@media screen and (max-Width:400px){
     .checkout{
     background-color: #039703;
     color: white;

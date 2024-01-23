@@ -6,7 +6,7 @@
     margin-left: -50px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .drop_cont
     {
         z-index: 1001;
@@ -20,7 +20,7 @@
     margin-left: -50px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .search_cont
     {
         margin-left: 0px;
@@ -37,7 +37,7 @@
     color: #0978e3;
   }
   
-  @media screen and (max-Width:600px){
+  @media screen and (max-Width:400px){
     .search_icon{
       position: absolute;
       margin-top:23px;

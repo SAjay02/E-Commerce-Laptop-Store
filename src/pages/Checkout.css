@@ -11,7 +11,7 @@
     margin-top: 20px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .img_cont
     {
         height: 200px;
@@ -22,7 +22,7 @@
     }
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .checkout_cont
 {
     margin-top: 130px;

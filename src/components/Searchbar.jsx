@@ -62,13 +62,15 @@ const handleMove= ()=>
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <i class="fa-solid fa-magnifying-glass fa-lg search_icon"></i>
+            </Form> 
+          </Nav>
+          <Nav>
             <NavDropdown title="All Categories" id="collapsible-nav-dropdown" className="nav-items-clr border-2" style={{backgroundColor:"white",borderRadius:"7px",border:"1px solid #0978e3"}}>
               <NavDropdown.Item  className='common_under' onClick={handleMove}>Gaming</NavDropdown.Item>
               <NavDropdown.Item  className='common_under' onClick={handleMove}>Business</NavDropdown.Item>
               <NavDropdown.Item  className='common_under' onClick={handleMove}>Education</NavDropdown.Item>
             </NavDropdown>
-          </Form> 
-          </Nav>
+            </Nav>
           </Navbar.Collapse>
         {filteredSuggestions.length > 0 && searchQuery.trim() !== '' && (
    <div className="dropdown drop_cont">

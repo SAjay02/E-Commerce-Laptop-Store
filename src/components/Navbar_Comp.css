@@ -13,7 +13,7 @@
     margin-left: 3px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
   .nav-items-tit
   {
     margin-left: 90px;
@@ -45,11 +45,11 @@
   
 }
 
-@media screen and (MAx-Width:600px){
+@media screen and (Max-Width:400px){
   .logo{
     height: 50px;
     margin-left: 10px;
-    margin-right: 160px;
+    margin-right: 100px;
   }
 }
 
@@ -79,7 +79,7 @@
   color: #0978e3;
 }
 
-@media screen and (max-Width:600px){
+@media screen and (max-Width:400px){
   .search_icon{
     position: absolute;
     margin-top:20px;
@@ -97,7 +97,7 @@
   margin-top: 17px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
   .user_cont
   {
     font-family: "Montserrat";
@@ -117,7 +117,7 @@
 
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
   .cart_cont
   {
     margin-left: 260px;
@@ -128,7 +128,7 @@
     margin-left: -12px;
 }
 
-@media screen and (Max-width:600px){
+@media screen and (Max-width:400px){
   .logout_cont
   {
     margin-left: 261px;
@@ -141,11 +141,11 @@
   margin-left: 10px;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
   .user_head
   {
     /* margin-top: -250px; */
-    margin-left: 150px;
+    margin-left: 110px;
     font-size: 20px;
     /* position: absolute; */
   }
@@ -154,7 +154,7 @@
 .about_cont{
 
 }
-@media screen and (Max-Width:600px) {
+@media screen and (Max-Width:400px) {
   .about_cont
   {
     /* margin-left: 180px;
@@ -166,7 +166,7 @@
 {
   margin-left: -12px;
 }
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
   .login_cont
 {
   margin-left: 261px;

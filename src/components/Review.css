@@ -4,7 +4,7 @@
     display: flex;
 }
 
-@media screen and (Max-Width:600px){
+@media screen and (Max-Width:400px){
     .total_icon
     {
         margin-left: 220px;
