@@ -16,6 +16,8 @@ export default function Deposits() {
 {
   axios.get('http://localhost:8000/api/getrevenue').then((response)=>setRevenue(response.data)).catch((err)=>console.log(err));
 },[])
+
+const exchangeRate = 0.012;
 const calculateSubtotal = (cartItem) => {
   return Number(cartItem.Amount) || 0;
 };
@@ -23,19 +25,21 @@ const calculateSubtotal = (cartItem) => {
 const calculateTotalSubtotal = () => {
   if (revenue && revenue.length > 0) {
     return revenue.reduce(
-      (total, cartItem) => Number(total) + Number(calculateSubtotal(cartItem)),
+      (total, cartItem) =>
+        Number(total) + Number(calculateSubtotal(cartItem)),
       0
-    );
+    ) * exchangeRate;
   }
   return 0;
-}
+};
+
 console.log(revenue);
   return (
     <React.Fragment>
       <Title>Total Revenue's</Title>
       <Typography component="p" variant="h4">
         {/* $3,024.00 */}
-        {`${calculateTotalSubtotal()}.00`}
+        {`$${calculateTotalSubtotal().toFixed(2)}`}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
         Sice 09 Dec, 2023

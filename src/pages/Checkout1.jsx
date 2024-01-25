@@ -148,8 +148,12 @@ const Checkout1 = ({shown,setshown}) => {
 
             await axios.post('http://localhost:8000/recentOrders',{Name:lastAddress.firstName,City:lastAddress.city,State:lastAddress.state,Payment:token.card.brand,LastDigits:token.card.last4,Amount:totalAmount,Date:currentDate}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
 
-            await axios.put('http://localhost:8000/revenue',{Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+            const d = new Date();
+            let hour = d.getUTCHours()+5; 
+
+            await axios.put('http://localhost:8000/revenue',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
           
+            await axios.put('http://localhost:8000/sales',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
         }
   } catch (error) {
     console.log("Error:", error);

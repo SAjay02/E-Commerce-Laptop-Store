@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const revenueScheme=mongoose.Schema({
+const salesScheme=mongoose.Schema({
     Time:{
         type:String,
         required:false
@@ -10,5 +10,5 @@ const revenueScheme=mongoose.Schema({
     }
 });
 
-const Revenue = mongoose.model('totalrevenue', revenueScheme);
-module.exports = Revenue;
+const Sales = mongoose.model('sales', salesScheme);
+module.exports = Sales;

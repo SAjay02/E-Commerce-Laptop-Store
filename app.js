@@ -9,6 +9,7 @@ const Address=require("./src/Server/Models/addressModel");
 const Buy=require("./src/Server/Models/buyModel"); 
 const RecentOrders = require("./src/Server/Models/recentModel");
 const Revenue = require("./src/Server/Models/revenueModel");
+const Sales=require("./src/Server/Models/salesModel");
 const connectdb=require("./src/Server/configurations/db");
 const app=express();
 const PORT=process.env.PORT || 8000;
@@ -590,6 +591,7 @@ app.get('/getcart/:authToken',async (req, res) => {
     //update the total revenue endpoint
     app.put('/revenue',  async (req, res) => {
       try{  
+
         const amount=req.body;
         const revenue = await new Revenue(req.body);
         const savedAmount=await revenue.save();
@@ -604,6 +606,27 @@ app.get('/getcart/:authToken',async (req, res) => {
     app.get('/api/getrevenue',async(req,res)=>
     {
       const revenue=await Revenue.find({});
+      res.json(revenue);
+    })
+
+    //update the total sales endpoint
+    app.put('/sales',  async (req, res) => {
+      try{  
+
+        const amount=req.body;
+        const revenue = await new Sales(req.body);
+        const savedAmount=await revenue.save();
+        res.status(201).json(savedAmount);
+      } catch (error) {
+        console.error('Error adding Revenue :', error);
+        res.status(500).json({ error: 'Internal server error' });
+      }
+    });
+
+    //get the sales to admindashboard endpoint
+    app.get('/api/sales',async(req,res)=>
+    {
+      const revenue=await Sales.find({});
       res.json(revenue);
     })
 
