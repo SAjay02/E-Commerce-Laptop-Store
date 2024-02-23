@@ -18,7 +18,7 @@ const Review = () => {
 
   useEffect(()=>
   {
-    axios.get(`http://localhost:8000/getaddress/${authToken}`)
+    axios.get(`https://e-com-back.onrender.com/getaddress/${authToken}`)
     .then((response)=>
     {
       setUpdateAddress(response.data[0].userAddress);

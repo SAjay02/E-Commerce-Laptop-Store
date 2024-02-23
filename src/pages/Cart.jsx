@@ -68,7 +68,7 @@ const Cart = () => {
     if(authToken)
     {
       console.log(authToken)
-    axios.get(`http://localhost:8000/getcart/${authToken}`)
+    axios.get(`https://e-com-back.onrender.com/getcart/${authToken}`)
       .then((response) => {
         setCartItemsFromDb(response.data.cart.products)
         console.log('Response ',response)
@@ -122,7 +122,7 @@ const handleDecrease = (item) => {
 
 const handleRemove = (cartItem) => {
   console.log(cartItem._id)
-  axios.delete(`http://localhost:8000/deleteCart/${authToken}/${cartItem._id}`)
+  axios.delete(`https://e-com-back.onrender.com/deleteCart/${authToken}/${cartItem._id}`)
   .then((response)=>console.log('Deleted Response: '+response))
   .catch((error) => console.error('Error deleting product from cart:', error));
   const updatedCartItems = cartItemsFromDb.filter((item) => item._id !== cartItem._id);

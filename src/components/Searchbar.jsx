@@ -11,7 +11,7 @@ const Searchbar = ({setSelectedProduct}) => {
     useEffect(() => {
         const fetchSuggestions = async () => {
           try {
-            const response = await fetch(`http://localhost:8000/api/products?q=${searchQuery}`);
+            const response = await fetch(`https://e-com-back.onrender.com/api/products?q=${searchQuery}`);
             const data = await response.json();
             // console.log(data)
             setSuggestions(data || []); // Ensure suggestions is always an array

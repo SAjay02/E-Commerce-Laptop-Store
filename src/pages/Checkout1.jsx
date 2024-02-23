@@ -48,7 +48,7 @@ const Checkout1 = ({shown,setshown}) => {
     const [orderedId,SetOrderedId]=useState('');
     useEffect(()=>
   {
-    axios.get(`http://localhost:8000/getaddress/${authToken}`)
+    axios.get(`https://e-com-back.onrender.com/getaddress/${authToken}`)
     .then((response)=>
     {
       setUpdateAddress(response.data[0].userAddress);
@@ -101,7 +101,7 @@ const Checkout1 = ({shown,setshown}) => {
     if(authToken)
     {
       console.log(authToken)
-    axios.get(`http://localhost:8000/getbuy/${authToken}`)
+    axios.get(`https://e-com-back.onrender.com/getbuy/${authToken}`)
       .then((response) => {
         setProduct(response.data[0])
         console.log('Response ',response)
@@ -130,7 +130,7 @@ const Checkout1 = ({shown,setshown}) => {
     }
     try {
       console.log('Data:', data); 
-      const response = await axios.post("http://localhost:8000/payment",data);
+      const response = await axios.post("https://e-com-back.onrender.com/payment",data);
         if (response.data.success) {
             setIsPaymentSuccessful(true);
             SetOrderedId(response.data.paymentIntent.id)
@@ -138,7 +138,7 @@ const Checkout1 = ({shown,setshown}) => {
             const data={
               quantity:product.id
             }
-            await axios.delete('http://localhost:8000/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+            await axios.delete('https://e-com-back.onrender.com/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
       
             const date = new Date();
             let day = date.getDate();
@@ -146,14 +146,14 @@ const Checkout1 = ({shown,setshown}) => {
             let year = date.getFullYear();
             let currentDate = `${day}-${month}-${year}`;
 
-            await axios.post('http://localhost:8000/recentOrders',{Name:lastAddress.firstName,City:lastAddress.city,State:lastAddress.state,Payment:token.card.brand,LastDigits:token.card.last4,Amount:totalAmount,Date:currentDate}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+            await axios.post('https://e-com-back.onrender.com/recentOrders',{Name:lastAddress.firstName,City:lastAddress.city,State:lastAddress.state,Payment:token.card.brand,LastDigits:token.card.last4,Amount:totalAmount,Date:currentDate}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
 
             const d = new Date();
             let hour = d.getUTCHours()+5; 
 
-            await axios.put('http://localhost:8000/revenue',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+            await axios.put('https://e-com-back.onrender.com/revenue',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
           
-            await axios.put('http://localhost:8000/sales',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+            await axios.put('https://e-com-back.onrender.com/sales',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
         }
   } catch (error) {
     console.log("Error:", error);
@@ -162,7 +162,7 @@ const Checkout1 = ({shown,setshown}) => {
   useEffect(() => {
     if (isPaymentSuccessful) {
       axios
-        .post('http://localhost:8000/sendemail', { authToken, orderedId })
+        .post('https://e-com-back.onrender.com/sendemail', { authToken, orderedId })
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
     }

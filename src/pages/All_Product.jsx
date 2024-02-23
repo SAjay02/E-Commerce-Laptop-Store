@@ -87,7 +87,7 @@ const totalDiscount=Math.floor(Number(100-calculateDiscount));
         products: product, 
       };
         console.log('Data:', data); 
-        await axios.put("http://localhost:8000/buyproducts",data).then((response)=>
+        await axios.put("https://e-com-back.onrender.com/buyproducts",data).then((response)=>
           console.log(response)
         ).catch((error)=>console.log(error));
        navigate('/directcheckout')
@@ -126,7 +126,7 @@ const All_Product = () => {
   const[getproduct,setGetProduct]=useState([]);
   useEffect(()=>
   { 
-    axios.get('http://localhost:8000/api/products').then(items=>setGetProduct(items.data)).catch(err=>console.log(err));
+    axios.get('https://e-com-back.onrender.com/api/products').then(items=>setGetProduct(items.data)).catch(err=>console.log(err));
   },[]);
 
   getproduct.forEach(i=>{

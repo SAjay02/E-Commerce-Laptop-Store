@@ -28,7 +28,7 @@ const Add_Products = () => {
     try
     {
         console.log('Form Data:', product); 
-        axios.post("http://localhost:8000",product).then((response)=>console.log(response)).catch((error)=>console.log(error));
+        axios.post("https://e-com-back.onrender.com/",product).then((response)=>console.log(response)).catch((error)=>console.log(error));
     } 
     catch(event){
       console.log("Error:"+event);

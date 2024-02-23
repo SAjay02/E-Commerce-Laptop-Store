@@ -45,7 +45,7 @@ const Navbar_Comp = ({sections }) => {
     // Fetch the user's information from the backend using the authToken
     const fetchUserInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/user', {
+        const response = await axios.get('https://e-com-back.onrender.com/user', {
           headers: {
             "x-access-token": authToken
           },
@@ -87,7 +87,7 @@ const Navbar_Comp = ({sections }) => {
     if(authToken)
     {
       console.log(authToken)
-    axios.get(`http://localhost:8000/getcart/${email}`)
+    axios.get(`https://e-com-back.onrender.com/${email}`)
       .then((response) => {
         setCartItemsFromDb(response.data.cart.products)
         console.log('Response ',response)

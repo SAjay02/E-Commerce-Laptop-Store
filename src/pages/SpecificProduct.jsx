@@ -84,7 +84,7 @@ const SpecificProduct = () => {
         products: product, // The ID of the product you want to add to the cart
       };
         console.log('Data:', data); 
-        axios.post("http://localhost:8000/addtocart",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
+        axios.post("https://e-com-back.onrender.com/addtocart",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
     } 
     catch(event){
       console.log("Error:"+event);
@@ -106,7 +106,7 @@ const SpecificProduct = () => {
         products: product, // The ID of the product you want to add to the cart
       };
         console.log('Data:', data); 
-        axios.put("http://localhost:8000/buyproducts",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
+        axios.put("https://e-com-back.onrender.com/buyproducts",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
         navigate('/directcheckout')
     } 
     catch(event){
@@ -116,7 +116,7 @@ const SpecificProduct = () => {
 useEffect(() => {
   //console.log('Fetching product details for ID:', id);
   axios
-    .get(`http://localhost:8000/api/products/${id}`)
+    .get(`https://e-com-back.onrender.com/api/products/${id}`)
     .then((response) => {
       setProduct(response.data);
       console.log('API response:', response);

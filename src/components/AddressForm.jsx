@@ -61,7 +61,7 @@ const AddressForm = ({ handleNext}) => {
     };
     try {
         console.log('Data:', data); 
-        axios.post("http://localhost:8000/useraddress",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
+        axios.post("https://e-com-back.onrender.com/useraddress",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
         handleNext();
     } catch (error) {
       console.log("Error:", error);
