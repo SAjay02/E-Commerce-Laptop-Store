@@ -12,7 +12,7 @@ const Revenue = require("./src/Server/Models/revenueModel");
 const Sales=require("./src/Server/Models/salesModel");
 const connectdb=require("./src/Server/configurations/db");
 const app=express();
-const PORT=process.env.PORT || 8000;
+const PORT= 8000;
 const jwt=require("jsonwebtoken");
 const bcrypt =require("bcrypt")
 const cookieParser=require("cookie-parser")
@@ -38,7 +38,7 @@ app.post("/",async(req,res)=>
 {
     try{
         console.log('Received Data:',req.body);
-        const newProduct = await new Login(req.body);
+        const newProduct = await new Product(req.body);
         const savedProduct=await  newProduct.save();
     res.status(201).json(savedProduct);
     }catch(error)

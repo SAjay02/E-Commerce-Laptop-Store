@@ -2,7 +2,7 @@ const mongoose=require("mongoose");
 const connectdb=async()=>
 {
     try {
-    const connection = await mongoose.connect("mongodb://0.0.0.0:27017/userDetails", {
+    const connection = await mongoose.connect("mongodb+srv://Ajay:AJAY2004@cluster0.rbciovk.mongodb.net/userDetails", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
