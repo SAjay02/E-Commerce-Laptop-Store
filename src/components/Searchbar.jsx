@@ -65,7 +65,7 @@ const handleMove= ()=>
             </Form> 
           </Nav>
           <Nav>
-            <NavDropdown title="All Categories" id="collapsible-nav-dropdown" className="nav-items-clr border-2" style={{backgroundColor:"white",borderRadius:"7px",border:"1px solid #0978e3"}}>
+            <NavDropdown title="All Categories" id="collapsible-nav-dropdown" className="nav-items-clr border-2 drop__item" >
               <NavDropdown.Item  className='common_under' onClick={handleMove}>Gaming</NavDropdown.Item>
               <NavDropdown.Item  className='common_under' onClick={handleMove}>Business</NavDropdown.Item>
               <NavDropdown.Item  className='common_under' onClick={handleMove}>Education</NavDropdown.Item>

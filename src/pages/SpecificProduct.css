@@ -9,6 +9,25 @@
 
 }
 
+.spec_pro_head
+{
+   margin-top:80px 
+}
+
+/* @media (max-Width:430px)
+{
+    .spec_pro_head
+    {
+      margin-top:20px 
+    }
+}
+@media (max-Width:401px)
+{
+    .spec_pro_head
+    {
+      margin-top:50px 
+    }
+} */
 .img_cont
 {
     height: 90%;
@@ -19,12 +38,19 @@
     height: 350px;
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
     .img{
-        margin-left: -55px;
-        margin-top: 8px;
+        margin-left: 0px;
         width: 380px;
         height: 300px;
+    }
+}
+
+@media screen and (Max-Width:401px){
+    .img{
+        margin-left: -60px;
+        width: 320px;
+        height: 240px;
     }
 }
 /* @media screen and (max-width:600px) 
@@ -43,9 +69,9 @@
     margin-top: 260px;
 }
 }
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:401px){
     .buttons{
-        margin-left: -70px;
+        margin-left: -60px;
     }
 }
 .product_name
@@ -56,12 +82,11 @@
     color: #0f1111;
    
 }
-@media screen and (max-Width:400px) 
+@media screen and (max-Width:401px) 
 {
     .product_name
 {
-    /* font-family: "Roboto"; */
-    margin-top: 60px;
+    margin-top: 0px;
     font-family: 'Amazon Ember',Arial,  sans-serif;
     color: #0f1111;
    
@@ -176,12 +201,12 @@
     letter-spacing: 0;
     font-weight: 900;
 }
-@media screen and (max-width:400px) 
+@media screen and (max-width:401px) 
 {
     .btn-buy
 {
     height: 50px;
-    width: 200px;
+    width: 150px;
     margin-right: 5px;
     border-radius: 3px;
     background-color: #ff9f00;
@@ -208,12 +233,12 @@
     /* display: inline-flex; */
     
 }
-@media screen and (max-width:400px) 
+@media screen and (max-width:401px) 
 {
     .btn-add
 {
     height: 50px;
-    width: 200px;
+    width: 150px;
     margin-right: 5px;
     border-radius: 3px;
     background-color: #fb641b;

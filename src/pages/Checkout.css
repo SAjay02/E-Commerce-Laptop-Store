@@ -11,7 +11,7 @@
     margin-top: 20px;
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
     .img_cont
     {
         height: 200px;
@@ -19,6 +19,7 @@
         margin-top: -40px;
         margin-left: 70px;
         position: absolute;
+        display: none ;
     }
 }
 

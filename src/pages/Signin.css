@@ -13,3 +13,20 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  .signup_account
+  {
+    justify-content: center;
+    text-align: center;
+    margin-left: 120px;
+  }
+
+
+  @media (max-Width:430px){
+    .signup_account
+  {
+    justify-content: center;
+    text-align: center;
+    margin-left: 60px;
+  }
+  }

@@ -4,6 +4,14 @@
     padding-right: 70px;
 }
 
+@media screen and (max-width:430px) {
+    .container__{
+        margin-top: 80px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
 @media screen and (max-width:400px) {
     .container__{
         margin-top: 70px;

@@ -149,9 +149,9 @@ const Navbar_Comp = ({sections }) => {
               <i className="fa fa-sign-in me-1"></i>Login
             </Button>
           </Nav.Link>
-          <div className="d-inline-flex me-1 ">
+          <div className="d-inline-flex me-1 user_head_login">
          <i class="fa-solid fa-circle-user me-1" style={{color: "white",fontSize:"30px",marginTop:"13px"}}></i>
-            <span  className="user_cont me"  style={{color:"black",marginTop:"17px"}}>{`Hello !`}</span>
+            <span  className="user_cont_login me" >{`Hello !`}</span>
             </div>
           </>
         )}

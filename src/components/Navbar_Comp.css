@@ -45,11 +45,19 @@
   
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
+  .logo{
+    height: 50px;
+    margin-left: 30px;
+    margin-right: 80px;
+  }
+}
+
+@media screen and (Max-Width:390x){
   .logo{
     height: 50px;
     margin-left: 10px;
-    margin-right: 100px;
+    margin-right: 80px;
   }
 }
 
@@ -97,14 +105,21 @@
   margin-top: 17px;
 }
 
-@media screen and (Max-Width:400px){
+.user_cont_login
+{
+  font-family: "Montserrat";
+  font-weight: 600;
+  color: black;
+  margin-top: 17px;
+}
+@media screen and (Max-Width:430px){
   .user_cont
   {
     font-family: "Montserrat";
   font-weight: 600;
   color: black;
   margin-top: 14px;
-  
+  /* margin-left: 90px; */
   }
 }
 .second_cont_item
@@ -117,10 +132,17 @@
 
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
   .cart_cont
   {
     margin-left: 260px;
+  }
+}
+
+@media screen and (Max-width:380px){
+  .cart_cont
+  {
+    margin-left: 0px;
   }
 }
 .logout_cont
@@ -128,29 +150,41 @@
     margin-left: -12px;
 }
 
-@media screen and (Max-width:400px){
+@media screen and (Max-width:430px){
   .logout_cont
   {
-    margin-left: 261px;
+    margin-left: 260px;
 
   }
 }
 
+@media screen and (Max-width:380px){
+  .logout_cont
+  {
+    margin-left: 0px;
+    
+  }
+}
 .user_head
 {
   margin-left: 10px;
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
   .user_head
   {
-    /* margin-top: -250px; */
-    margin-left: 110px;
-    font-size: 20px;
-    /* position: absolute; */
+    justify-content: center;
+    font-size: 17px;
   }
 }
 
+@media screen and (Max-Width:430px){
+.user_head_login
+{
+  justify-content: center;
+  font-size: 17px;
+}
+}
 .about_cont{
 
 }
@@ -164,15 +198,20 @@
 
 .login_cont
 {
-  margin-left: -12px;
+  margin-left: -15px;
 }
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
   .login_cont
 {
-  margin-left: 261px;
+  margin-left: 260px;
 }
 }
-
+@media screen and (Max-width:380px){
+  .login_cont
+  {
+    margin-left: 0px;
+  }
+}
 .contact_toolpik
 {
   color:#0978e3;

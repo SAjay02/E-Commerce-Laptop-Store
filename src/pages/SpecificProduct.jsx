@@ -139,7 +139,7 @@ useEffect(() => {
   return (
     <div className={`fade-in-from-top ${isVisibletop ? 'visible' : ''}`}>
     <div className="mt-5 container__ p-3" >
-        <Container style={{marginTop:"80px"}} >
+        <Container className="spec_pro_head">
               <Row>
                 <Col className="col-sm-12">
                   

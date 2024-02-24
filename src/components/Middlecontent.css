@@ -65,7 +65,7 @@ figure {
     font-size: 36px;
 }
 
-@media screen  and (max-Width:400px){
+@media screen  and (max-Width:430px){
     .sub_head
     {
         border: 2px solid #fde6aa;
@@ -78,7 +78,21 @@ figure {
         width: 400px;
         height: 550px;
     }
-    
+}
+
+@media screen  and (max-Width:404px){
+    .sub_head
+    {
+        border: 2px solid #fde6aa;
+        border-radius: 25px;
+        background: white;
+        padding: 5%;
+        text-align: left;
+        height: 0vw;
+        font-size: 36px;
+        width: 350px;
+        height: 600px;
+    }
 }
 .head_tit
 {
@@ -92,19 +106,26 @@ figure {
      margin-right: 400px; 
 }
 
-@media screen and(max-Width:400px) {
+@media screen and(max-Width:430px) {
     .head_tit
     {
         background: #ffbb40;
-    padding: 12px 40px 6px;
-    display: block;
     border-radius: 12px 12px 0px 12px;
     margin-bottom: 2%;
     line-height: 2.2;
-    /* width: 600px; */
+    width: 600px;
     }
 }
-
+@media screen and(max-Width:399px) {
+    .head_tit
+    {
+        background: #ffbb40;
+    border-radius: 12px 12px 0px 12px;
+    margin-bottom: 2%;
+    line-height: 2.2;
+    width: 100px;
+    }
+}
 
 .common_tit
 {
@@ -120,22 +141,38 @@ figure {
     font-size: 28px;
 }
 
-@media screen and (max-Width:400px){
+@media screen and (max-Width:430px){
     .common_tit
     {
         display: block;
     margin: 0 auto;
     text-align: center;
-    margin-left: 40px;
+    margin-left: -50px;
     background: linear-gradient(to bottom, #680613 30%, #c74514 70%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     font-family: 'Kalnia', serif;
-    font-size: 19px;
-    width: 200px;
-    }
-    
+    font-size: 20px;
+    width: 250px;
+    } 
+}
+
+@media screen and (max-Width:399px){
+    .common_tit
+    {
+        display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-left: -100px;
+    background: linear-gradient(to bottom, #680613 30%, #c74514 70%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: 'Kalnia', serif;
+    font-size: 20px;
+    width: 350px;
+    } 
 }
 .cent_cont
 {
@@ -148,7 +185,7 @@ figure {
     /* opacity: 0.7; */
 }
 
-@media screen and (max-Width:400px) {
+@media screen and (max-Width:430px) {
     .cent_cont
     {
             text-align: left;
@@ -156,10 +193,6 @@ figure {
             font-family: "Crimson";
             margin-left: 10px;
             color: black;
-            
-
-            /* opacity: 0.7; */
-            /* line-height: 50px; */
     }
 }
 .img_head
@@ -172,7 +205,7 @@ figure {
     filter: contrast(120%);
 }
 
-@media screen and (max-Width:400px){
+@media screen and (max-Width:430px){
     .img_head
     {
         /* margin-top: -250px;
@@ -227,16 +260,55 @@ figure {
     margin-left: 50px;
 }
 
-@media screen and (max-Width:400px){
+@media screen and (max-Width:430px){
     .card_head
     {
-        height: 400px;
+    height: 400px;
     width: 325px;
     margin-right: 0px;
     background-color:#f9eddd;
     border: none;
     margin-top: 0px;
     margin-left: 65px;
+    }
+}
+
+@media screen and (max-Width:410px){
+    .card_head
+    {
+    height: 400px;
+    width: 325px;
+    margin-right: 0px;
+    background-color:#f9eddd;
+    border: none;
+    margin-top: 0px;
+    margin-left: 55px;
+    }
+}
+
+@media screen and (max-Width:400px){
+    .card_head
+    {
+    height: 400px;
+    width: 325px;
+    margin-right: 0px;
+    background-color:#f9eddd;
+    border: none;
+    margin-top: 0px;
+    margin-left: 50px;
+    }
+}
+
+@media screen and (max-Width:388px){
+    .card_head
+    {
+    height: 400px;
+    width: 325px;
+    margin-right: 0px;
+    background-color:#f9eddd;
+    border: none;
+    margin-top: 0px;
+    margin-left: 40px;
     }
 }
 

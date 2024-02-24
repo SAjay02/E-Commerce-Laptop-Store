@@ -282,8 +282,8 @@ console.log(cartItemsFromDb)
                       <img
                         src={imgItem.img}
                         alt={cartItem.name}
-                        className="img_container"
-                        style={{height:"250px"}}
+                        className="img_container img_only_cont"
+                        // style={{height:"250px"}}
                       />
                       </div>
                     </div>

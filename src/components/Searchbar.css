@@ -5,12 +5,23 @@
     font-family: "Amazon Ember",Arial,sans-serif;
     margin-left: -50px;
 }
+.drop__item
+{
+    background-Color:white;
+    border-radius:7px;
+    border:1px solid #0978e3;
+}
+@media screen and (Max-Width:430px){
+    .search_cont
+    {
+        margin-left: 20px;
+    }
+}
 
 @media screen and (Max-Width:400px){
     .drop_cont
     {
         z-index: 1001;
-    /* overflow-wrap: break-word; */
     font-family: "Amazon Ember",Arial,sans-serif;
     margin-left: 0px;
     }
@@ -20,7 +31,7 @@
     margin-left: -50px;
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
     .search_cont
     {
         margin-left: 0px;

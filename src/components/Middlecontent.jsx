@@ -72,7 +72,7 @@ const Middlecontent = () => {
     </div>
     </div>
     
-    <div className={`scale-animation ${scaleDirection}`}>
+    <div className={`scale-animation ${scaleDirection} card__head_top`}>
         <Row>
         {img.map((map)=>
         {

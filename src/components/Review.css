@@ -4,10 +4,31 @@
     display: flex;
 }
 
-@media screen and (Max-Width:400px){
+@media screen and (Max-Width:430px){
     .total_icon
     {
         margin-left: 220px;
         display: flex;
+    }
+}
+
+@media screen and (Max-Width:402px){
+    .total_icon
+    {
+        margin-left: 190px;
+        display: flex;
+    }
+}
+
+.check_top_head
+{
+
+}
+
+@media (max-Width:430px)
+{
+    .check_top_head
+    {
+        margin-bottom: 400px;
     }
 }

@@ -18,7 +18,7 @@ function Copyright() {
         Lapii.Store 
       </Link>{' '} 
       {new Date().getFullYear()}
-      {'.'}
+      {''}
       <div className="foot_sec">
        All rights reserved.
        </div>

@@ -71,7 +71,7 @@ const Review = () => {
   }
 
   return (
-    <div>
+    <div className="check_top_head">
         <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary

@@ -2,15 +2,30 @@
 .foot_head
 {
     display:inline-flex;
-    /* background-color: #0978e3; */
     color: white;
 }
-@media screen  and (max-Width:400px) {
+
+@media (max-Width:430px)
+{
     .foot_head
     {
-        /* width: 200px; */
-        /* height: 20px; */
-        margin-left: -20px;
+        margin-left: 10px;
+    }
+}
+@media (max-Width:412px)
+{
+    .foot_head
+    {
+        margin-left: 10px;
+        font-size: 13px;
+    }
+}
+@media (max-Width:381px)
+{
+    .foot_head
+    {
+        margin-left: 0px;
+        font-size: 13px;
     }
 }
 .line
@@ -25,11 +40,10 @@
     margin-right: 3px;
 }
 
-@media screen and (max-Width:400px){
+@media screen and (max-Width:430px){
     .foot_tit{
         text-decoration: none;
-        margin-left: px;
-        margin-right: 3px;
+        margin-left: 10px;
     }
 }
 .foot_sec
@@ -37,24 +51,32 @@
     margin-left: 2px;
     margin-right: 3px;
 }
-@media screen and (max-Width:400px) {
+@media (max-Width:430px) {
     .foot_sec{
-        margin-left: 10px;
-        /* display: none; */
+        margin-left: 40px;
     }
 }
-
+@media (max-Width:412px) {
+    .foot_sec{
+        margin-left: 35px;
+    }
+}
+@media (max-Width:386px)
+{
+    .foot_sec{
+        margin-left: 30px;
+    }
+}
 .foot_last
 {
     display:inline-flex;
     margin-left:180px; 
 }
 
-@media screen  and (max-Width:400px){
+@media screen  and (max-Width:430px){
     .foot_last
     {
-        display:inline-flex;
-        margin-left: 0px;
+        display: none;
     }
     
 }
@@ -99,7 +121,7 @@
     margin-left: 480px;
     height: 20vh;
 }
-@media screen and (max-Width:400px){
+@media screen and (max-Width:430px){
     .mid_cont_head
     {
         margin-top: 0vh;

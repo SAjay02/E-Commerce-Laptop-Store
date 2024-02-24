@@ -11,7 +11,7 @@ const LastmidCont = () => {
       }, []);
   return (
     <div className={`fade-in-from-top ${isVisibletop ? 'visible' : ''}`}>
-    <div style={{marginTop:"100px",borderRadius:"10px",marginBottom:"50px",overflowX:"hidden"}} className='top'>
+    <div className='top'>
         <div className="top_img">
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/gaminglap/revamp/gaming_subsection_pc_01.jpg" className="top_img"/>
         </div>
@@ -20,10 +20,10 @@ const LastmidCont = () => {
             <Col className=" col-md-4 img_one">
                 <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/gaminglap/revamp/gaming_subsection_pc_02.jpg" style={{height:"421px",width:"421px"}}/>
             </Col>
-            <Col className=" col-md-4">
+            <Col className=" col-md-4 img_one">
                 <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/gaminglap/revamp/gaming_subsection_pc_03.jpg" style={{height:"421px",width:"421px"}}/>
             </Col>
-            <Col className=" col-md-4">
+            <Col className=" col-md-4 img_one">
                 <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/gaminglap/revamp/gaming_subsection_pc_04.jpg" style={{height:"421px",width:"421px"}}/>
             </Col>
             </Row>
