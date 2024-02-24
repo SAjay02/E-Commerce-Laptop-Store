@@ -169,7 +169,7 @@ const Checkout1 = ({shown,setshown}) => {
   }, [isPaymentSuccessful]);
   return (
     <div className="full_cont">
-         <img src={side}className="img_cont"/>
+         <img src={side}className="img_cont_side"/>
         <React.Fragment >
       <CssBaseline />
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }} className="checkout_cont">

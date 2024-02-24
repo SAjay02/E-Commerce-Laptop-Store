@@ -5,6 +5,16 @@
     font-family: "Amazon Ember",Arial,sans-serif;
     margin-left: -50px;
 }
+
+@media screen and (Max-Width:430px){
+    .drop_cont
+    {
+        z-index: 1001;
+    overflow-wrap: break-word;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    margin-left: 0px;
+    }
+}
 .drop__item
 {
     background-Color:white;

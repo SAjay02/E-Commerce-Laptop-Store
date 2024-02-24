@@ -21,7 +21,7 @@ export const Button = styled.div`
    cursor: pointer; 
    color: #2d8eeb; 
 
-   @media (max-width: 400px) {
+   @media (max-width: 430px) {
       position: fixed;  
    width: 100%; 
    left: 90%; 

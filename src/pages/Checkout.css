@@ -4,7 +4,7 @@
     display: flex;
 }
 
-.img_cont
+.img_cont_side
 {
     height: 400px;
     width: auto;
@@ -12,13 +12,13 @@
 }
 
 @media screen and (Max-Width:430px){
-    .img_cont
+    .img_cont_side
     {
-        height: 200px;
+        /* height: 200px;
         width: auto;
         margin-top: -40px;
         margin-left: 70px;
-        position: absolute;
+        position: r; */
         display: none ;
     }
 }
