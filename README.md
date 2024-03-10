@@ -9,8 +9,7 @@ This is an E-Commerce web application for buying laptops online.
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Live Demo](#LiveDemo)
 
 ## Introduction
 
@@ -48,3 +47,21 @@ The E-Commerce Laptop Store is a web application designed to provide users with 
 1. Clone the repository:
    ```bash
    git clone https://github.com/SAjay02/E-Commerce-Laptop-Store.git
+
+2. Navigate to the project directory:
+   cd E-Commerce-Laptop-Store
+
+3. Install dependencies:
+   npm install
+
+## Usage
+
+1. Start the development server:
+   npm start
+
+2. Open your web browser and visit:
+   http://localhost:3000
+
+## LiveDemo
+   Check out the live demo of the Medical Management and Billing System:
+   [Live Demo](https://example.com/medical-management-billing-system)
