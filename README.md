@@ -63,5 +63,5 @@ The E-Commerce Laptop Store is a web application designed to provide users with 
    http://localhost:3000
 
 ## LiveDemo
-   Check out the live demo of the Medical Management and Billing System:
-   [Live Demo](https://example.com/medical-management-billing-system)
+   Check out the live demo of the E-Commerce Laptop Store:
+   [Live Demo](https://lapiistores.netlify.app/)
