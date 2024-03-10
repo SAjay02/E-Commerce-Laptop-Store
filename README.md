@@ -47,4 +47,4 @@ The E-Commerce Laptop Store is a web application designed to provide users with 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/e-commerce-laptop-store.git
+   git clone https://github.com/SAjay02/e-commerce-laptop-store.git
