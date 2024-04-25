@@ -20,7 +20,7 @@ const Upfotter = () => {
 
            const object = {
                 from_name:'User',
-                from_mail:authToken,
+                from_mail:email,
                 to_name:'Admin',
                 message:"Send valuable updates to my mail"
            }
@@ -33,10 +33,19 @@ const Upfotter = () => {
                console.log(error.text);
            });
        };
+       const handleSubmit1=(e)=>
+        {
+           e.preventDefault(); 
+           setEmail('');
+           toast.error("Please Login");
+
+       };
         
   return (
         <div className="upfoo_head ">
             <div className="row head_one">
+                {
+                    authToken ?
                     <div className="col-md-6 col-sm-12">
                     <div className="left_cont ">
                         <Form action="" onSubmit={handleSubmit}>
@@ -46,6 +55,17 @@ const Upfotter = () => {
                         </Form>
                     </div>
                     </div>
+                    :
+                    <div className="col-md-6 col-sm-12">
+                    <div className="left_cont ">
+                        <Form action="" onSubmit={handleSubmit1}>
+                        <p>Enter Email to receive valuable updates</p>
+                        <input type="email" placeholder="Email" className="input_cont" value={email} onChange={(e)=> setEmail(e.target.value)}/>
+                        <button  type="submit"><i class="fa-solid fa-arrow-right arrow_cont"></i></button>
+                        </Form>
+                    </div>
+                    </div>
+                }
                     <div  className=" col-md-6 col-sm-12">
                     <div className="right_cont">
                     <a href=""><i class="fa-brands fa-facebook fb_cont"></i></a>

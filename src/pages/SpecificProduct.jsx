@@ -99,6 +99,11 @@ const SpecificProduct = () => {
   };
 
   const buyProduct = (product) => {
+    if(!email)
+    {
+      toast.error("Please Login");
+      return
+    }
     try
     {
       const data = {
@@ -106,8 +111,10 @@ const SpecificProduct = () => {
         products: product, // The ID of the product you want to add to the cart
       };
         console.log('Data:', data); 
-        axios.put("https://e-com-back.onrender.com/buyproducts",data).then((response)=>console.log(response)).catch((error)=>console.log(error));
-        navigate('/directcheckout')
+        axios.put("https://e-com-back.onrender.com/buyproducts",data).then((response)=>{
+          navigate('/directcheckout')  
+        console.log(response)}).catch((error)=>console.log(error));
+
     } 
     catch(event){
       console.log("Error:"+event);
