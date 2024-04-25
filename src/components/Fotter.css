@@ -28,6 +28,14 @@
         font-size: 13px;
     }
 }
+@media (max-Width:370px)
+{
+    .foot_head
+    {
+        margin-left: 0px;
+        font-size: 12px;
+    }
+}
 .line
 {
     color:white;
@@ -128,7 +136,13 @@
         margin-left: 70px;
     }
 }
-
+@media screen and (max-Width:370px){
+    .mid_cont_head
+    {
+        margin-top: 0vh;
+        margin-left: 50px;
+    }
+}
 @media screen and (max-Width:400px) {
     .mid_con_para
     {
@@ -136,7 +150,13 @@
         margin-right:20px;
     }
 }
-
+@media screen and (max-Width:370px) {
+    .mid_con_para
+    {
+        margin-top: 0vh;
+        margin-right:10px;
+    }
+}
 .mid_con_para
 {
     font-size: 20px;
