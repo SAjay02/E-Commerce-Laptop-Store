@@ -110,7 +110,7 @@ const Register = () => {
               <Card.Body>
                 <div className="mb-3 mt-md-4">
                   <h4 className="fw-bold mb-2 text-center text-uppercase ">
-                  <i className="fa fa-user-plus me-1"></i>Register
+                  <i className="fa fa-user-plus me-1" style={{color:"#2d8eeb"}}></i>Register
                   </h4>
                   <div className="mb-3">
                     <Form action="" onSubmit={handleSubmit} noValidate>
@@ -148,7 +148,7 @@ const Register = () => {
                         <Form.Group/>
                       </Form.Group>
                       <div className="d-grid">
-                        <Button variant="primary" type="submit" style={{backgroundColor:`${color}`,marginTop:"10px"}} onClick={()=>navigate('')}>
+                        <Button variant="primary" type="submit" style={{backgroundColor:`#2d8eeb`,marginTop:"10px"}} onClick={()=>navigate('')}>
                           Create Account
                         </Button>
                       </div>
