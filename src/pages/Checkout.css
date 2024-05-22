@@ -10,6 +10,12 @@
     width: auto;
     margin-top: 20px;
 }
+.img_cont_side1
+{
+    height: 400px;
+    width: auto;
+    margin-top: 20px;
+}
 
 @media screen and (Max-Width:430px){
     .img_cont_side
@@ -23,6 +29,17 @@
     }
 }
 
+@media screen and (Max-Width:430px){
+    .img_cont_side1
+    {
+        /* height: 200px;
+        width: auto;
+        margin-top: -40px;
+        margin-left: 70px;
+        position: r; */
+        display: none ;
+    }
+}
 @media screen and (Max-Width:400px){
     .checkout_cont
 {

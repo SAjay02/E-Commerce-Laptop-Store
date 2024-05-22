@@ -13,6 +13,10 @@ const CarouselSlider = () => {
         {
           id : 2,
           image : img2
+        },
+        {
+          id:3,
+          image: "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGFwdG9wJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D"
         }
       ]
   return (
