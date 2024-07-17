@@ -123,6 +123,14 @@ const Checkout1 = ({shown,setshown}) => {
     });
   }, []);
   const totalAmount=product.cost;
+  // useEffect(() => {
+  //   console.log('Success Payment:', isPaymentSuccessful);
+  //   if(isPaymentSuccessful===true)
+  //     axios
+  //       .post('https://e-com-back.onrender.com/sendemail', { authToken, orderedId })
+  //       .then((response) => console.log(response))
+  //       .catch((error) => console.log(error));
+  // }, [isPaymentSuccessful]);
   const makePayment =async(token)=>
   {
     const data={
@@ -131,13 +139,17 @@ const Checkout1 = ({shown,setshown}) => {
     try {
       console.log('Data:', data); 
       const response = await axios.post("https://e-com-back.onrender.com/payment",data);
+      console.log("Response:", JSON.stringify(response.data, null, 2));
         if (response.data.success) {
             setIsPaymentSuccessful(true);
+            // console.log('Succes Payment: '+isPaymentSuccessful);
             SetOrderedId(response.data.paymentIntent.id)
             setActiveStep(activeStep + 1);
             const data={
               quantity:product.id
             }
+            console.log("orderid" +orderedId)
+
             await axios.delete('https://e-com-back.onrender.com/deleteQuantity1',{data}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
       
             const date = new Date();
@@ -154,6 +166,9 @@ const Checkout1 = ({shown,setshown}) => {
             await axios.put('https://e-com-back.onrender.com/revenue',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
           
             await axios.put('https://e-com-back.onrender.com/sales',{Time:hour,Amount:totalAmount}).then((response)=>console.log(response)).catch((error)=>console.log(error)); 
+  
+            // await axios.post('https://e-com-back.onrender.com/sendemail', { authToken, orderedId }).then((response)=>console.log(response)).catch((error)=>console.log(error))
+
         }
   } catch (error) {
     console.log("Error:", error);
@@ -161,6 +176,8 @@ const Checkout1 = ({shown,setshown}) => {
   }
   useEffect(() => {
     if (isPaymentSuccessful) {
+      console.log("Auth Token:", authToken);
+     console.log("Ordered ID:", orderedId);
       axios
         .post('https://e-com-back.onrender.com/sendemail', { authToken, orderedId })
         .then((response) => console.log(response))

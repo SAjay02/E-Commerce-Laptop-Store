@@ -20,7 +20,7 @@ import {addCart} from "../redux/action"
 import {toast} from "react-hot-toast"
 import Cookies from 'js-cookie';
 import {useNavigate,NavLink} from "react-router-dom"
-
+import Spinner from 'react-bootstrap/Spinner';
 const product_image=[
   {
     id:"3",
@@ -143,13 +143,15 @@ useEffect(() => {
   
   setIsVisibletop(true);
 }, []);
+// console.log(product.name!==null?"Done":"NOt")
   return (
     <div className={`fade-in-from-top ${isVisibletop ? 'visible' : ''}`}>
     <div className="mt-5 container__ p-3" >
+      {
+        product.name!==null?
         <Container className="spec_pro_head">
               <Row>
                 <Col className="col-sm-12">
-                  
                   <Row>
                           <Col  className="img_cont">{imgItem && imgItem.img ?(<img src={imgItem.img} alt="Product" className="img"/>):(
         <Skeleton height={200} width={200} count={3}/> )}
@@ -213,6 +215,7 @@ useEffect(() => {
                   </Col>
               </Row>
         </Container>
+        :<Spinner animation="border" style={{color:"#0978e3"}}/>}
     </div>
     </div>
   )

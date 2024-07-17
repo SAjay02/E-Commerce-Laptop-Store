@@ -17,7 +17,7 @@ import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 import toast from "react-hot-toast";
-
+import Spinner from 'react-bootstrap/Spinner';
 import offer from "../assets/Offer.png";
 const item = [];
 const product_image = [
@@ -165,16 +165,16 @@ const All_Product = () => {
     item.push(i);
   });
   console.log(getproduct);
-
+  console.log(getproduct.length)
   return (
     <>
       <div className="text-center  tit " style={{ marginTop: "100px" }}>
         Our Things
       </div>
       <div className="d-flex flex-wrap justify-content-center">
-        {getproduct.map((product) => (
+        {getproduct.length>0? getproduct.map((product) => (
           <ProductCard key={product.id} product={product} />
-        ))}
+        )):  <Spinner animation="border" style={{color:"#0978e3"}}/>}
       </div>
     </>
   );

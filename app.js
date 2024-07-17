@@ -375,7 +375,7 @@ app.get('/getcart/:authToken',async (req, res) => {
 })
 
     //post the payment of user
-    app.post(('/payment'),async(req,res)=>
+    app.post('/payment',async(req,res)=>
     {
       try {
       const {token,totalAmount} = req.body;
@@ -535,9 +535,11 @@ app.get('/getcart/:authToken',async (req, res) => {
     //send conformation mail to the user 
     app.post('/sendemail',async(req,res)=>
     {
+      const { authToken, orderedId } = req.body;
       const mail=req.body;
-      console.log(mail);
-      console.log(mail.orderedId);
+      console.log("mail"+req.body);
+      console.log("authToken:", authToken);
+      console.log("orderedId:", orderedId);
         var sender = nodeMailer.createTransport({
           service:'gmail',
           auth:{
@@ -561,6 +563,7 @@ app.get('/getcart/:authToken',async (req, res) => {
           else
           {
             console.log("Mail Done :"+info.response)
+            res.status(200).json("Mail Sent Succesfully")
           }
         })
     })
